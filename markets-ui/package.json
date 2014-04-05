@@ -9,6 +9,7 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-shell": "~0.6.4",
-    "webdriverjs": "~1.4.0"
+    "webdriverjs": "~1.6.0",
+    "grunt-webdriver": "~0.3.3"
   }
 }

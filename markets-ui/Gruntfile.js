@@ -38,6 +38,18 @@ module.exports = function(grunt) {
       watch: {
         files: ['<%= jshint.files %>'],
         tasks: ['jshint']
+      },
+      
+      webdriver: {
+        options: {
+          bail: true,
+          desiredCapabilities: {
+            browserName: 'phantomjs'
+          }
+        },
+        all: {
+          tests: ['test/functional/*.js']
+        }
       }
     });
     
@@ -46,6 +58,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-webdriver');
     
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('test', ['jshint', 'webdriver:all']);
 };
