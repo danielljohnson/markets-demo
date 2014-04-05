@@ -11,42 +11,19 @@ describe('Markets', function() {
         browser.end(done);
     });
     
-    describe('Page titles and headers', function() {
-        it('home page', function(done) {
-            browser
-                .url(baseUrl)
-                .getTitle(function(err, title) {
-                    assert(err === null);
-                    assert(title === 'Markets');
-                })
-                .waitFor('h1')
-                .getText('h1', function(err, text) {
-                    assert(err === null);
-                    assert(text === 'Home Page');
-                })
-                .call(done);
-        });
-        
-        it('markets page', function(done) {
+    describe('Create Market', function() {
+        it('go to markets page', function(done) {
             browser
                 .url(baseUrl + '#markets')
                 .getTitle(function(err, title) {
                     assert(err === null);
                     assert(title === 'Markets');
-                })
-                .waitFor('h1')
-                .getText('h1', function(err, text) {
-                    assert(err === null);
-                    assert(text === 'Markets');
                 })
                 .call(done)
         });
-    });
-    
-    describe('Create Market', function() {
+      
         it('launch modal', function(done) {
             browser
-                .url(baseUrl + '#markets')
                 .waitFor('.js-addMarket')
                 .click('.js-addMarket')
                 .pause(2000) // wait for modal to fadeIn
@@ -87,9 +64,18 @@ describe('Markets', function() {
     });
     
     describe('Edit Market', function() {
-        it('launch modal', function(done) {
+        it('go to markets page', function(done) {
             browser
                 .url(baseUrl + '#markets')
+                .getTitle(function(err, title) {
+                    assert(err === null);
+                    assert(title === 'Markets');
+                })
+                .call(done)
+        });
+        
+        it('launch modal', function(done) {
+            browser
                 .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
                 .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-edit')
                 .pause(2000) // wait for modal to fadeIn
@@ -124,9 +110,18 @@ describe('Markets', function() {
     });
     
     describe('Delete Market', function() {
-        it('delete market', function(done) {
+        it('go to markets page', function(done) {
             browser
                 .url(baseUrl + '#markets')
+                .getTitle(function(err, title) {
+                    assert(err === null);
+                    assert(title === 'Markets');
+                })
+                .call(done)
+        });
+        
+        it('delete market', function(done) {
+            browser
                 .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
                 .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-delete')
                 .call(done);
