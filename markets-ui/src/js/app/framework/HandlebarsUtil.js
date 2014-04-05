@@ -23,9 +23,10 @@
  */
 define(
     [
+        'app/domain/Repository',
         'handlebars'
     ],
-    function() {
+    function(Repository) {
         'use strict';
 
         return {
@@ -36,6 +37,14 @@ define(
         
                 Handlebars.registerHelper('modalTitle', function(model_id, model_name) {
                     return (typeof model_id === 'undefined') ? 'Create Market' : 'Edit ' + model_name;
+                });
+                
+                Handlebars.registerHelper('getCurrencyName', function(currency_id) {
+                    return Repository.getCurrencies().get(currency_id).get('name');
+                });
+                
+                Handlebars.registerHelper('getLocationName', function(location_id) {
+                    return Repository.getLocations().get(location_id).get('name');
                 });
             }
         };

@@ -1,8 +1,9 @@
 define(
     [
-        'backbone'
+        'backbone',
+        'app/domain/Repository'
     ],
-    function(Backbone) {
+    function(Backbone, Repository) {
         'use strict';
 
         return Backbone.Model.extend({

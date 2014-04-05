@@ -24,5 +24,5 @@
 define({
     // The application root.
     // If you deploy the client to something other than '/', this should be changed.
-    appRoot: '/~Dan/markets-demo/markets-ui/src/'
+    appRoot: '/~djohn3/markets-demo/markets-ui/src/'
 });
