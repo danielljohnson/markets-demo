@@ -39,8 +39,8 @@ define(
                     return (typeof model_id === 'undefined') ? 'Create Market' : 'Edit ' + model_name;
                 });
                 
-                Handlebars.registerHelper('getCurrencyName', function(currency_id) {
-                    return Repository.getCurrencies().get(currency_id).get('name');
+                Handlebars.registerHelper('getCurrencyDesc', function(currency_id) {
+                    return Repository.getCurrencies().get(currency_id).get('description');
                 });
                 
                 Handlebars.registerHelper('getLocationName', function(location_id) {
