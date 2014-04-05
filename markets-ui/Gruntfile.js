@@ -65,10 +65,10 @@ module.exports = function(grunt) {
     grunt.registerTask('_webdriverjs', ['jshint', 'webdriver:all']);
     
     grunt.registerTask('webdriverjs', function() {
-        var browser = grunt.option('browser') || 'phantomjs';
-        
-        grunt.config.set('webdriver.options.desiredCapabilities.browserName', browser);
-        
-        grunt.task.run('_webdriverjs');
+      var browser = grunt.option('browser') || 'phantomjs';
+      
+      grunt.config.set('webdriver.options.desiredCapabilities.browserName', browser);
+      
+      grunt.task.run('_webdriverjs');
     });
 };
