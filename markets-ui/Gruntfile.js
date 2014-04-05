@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         options: {
           bail: true,
           desiredCapabilities: {
-            browserName: 'phantomjs'
+            browserName: 'chrome'
           }
         },
         all: {

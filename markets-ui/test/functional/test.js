@@ -4,7 +4,7 @@ describe('Markets', function() {
     var baseUrl = 'http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/';
     
     before(function() {
-        browser.windowHandleSize({width: 1024, height: 768})
+        browser.windowHandleSize({width: 1024, height: 768});
     })
     
     after(function(done) {
@@ -67,10 +67,18 @@ describe('Markets', function() {
                 .call(done)
         });
         
-        it('test title of new market', function(done) {
+        it('test number of rows in table is 1', function(done) {
+            browser
+                .elements('.js-marketsTable tbody tr', function(err, elements) {
+                    assert(err === null);
+                    assert(elements.value.length === 1);
+                })
+                .call(done);
+        });
+        
+        it('test title in first row', function(done) {
             browser
                 .getText('.js-marketsTable tbody tr:nth-child(1) td:nth-child(1)', function(err, result) {
-                    console.log(err)
                     assert(err === null);
                     assert(result === 'test');
                 })
@@ -96,7 +104,16 @@ describe('Markets', function() {
                 .call(done)
         });
         
-        it('test title of updated market', function(done) {
+        it('test number of rows in table is 1', function(done) {
+            browser
+                .elements('.js-marketsTable tbody tr', function(err, elements) {
+                    assert(err === null);
+                    assert(elements.value.length === 1);
+                })
+                .call(done);
+        });
+        
+        it('test title in first row', function(done) {
             browser
                 .getText('.js-marketsTable tbody tr:nth-child(1) td:nth-child(1)', function(err, result) {
                     assert(err === null);
@@ -115,7 +132,7 @@ describe('Markets', function() {
                 .call(done);
         });
         
-        it('test market is deleted', function(done) {
+        it('test number of rows in table is 0', function(done) {
             browser
                 .elements('.js-marketsTable tbody tr', function(err, elements) {
                     assert(err === null);
