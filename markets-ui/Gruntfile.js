@@ -40,15 +40,28 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       },
       
+      casper: {
+        all: {
+          options: {
+            test: true
+          },
+          src: 'test/casperjs/test.js'
+        }
+      },
+      
       webdriver: {
         options: {
           bail: true,
           desiredCapabilities: {
-            browserName: 'chrome'
+            browserName: 'chrome',
+            options: {
+              stdout: true,
+              stderr: true
+            }
           }
         },
         all: {
-          tests: ['test/functional/*.js']
+          tests: ['test/webdriverjs/*.js']
         }
       }
     });
@@ -59,8 +72,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-webdriver');
+    grunt.loadNpmTasks('grunt-casper');
     
     grunt.registerTask('default', ['jshint']);
+    
+    grunt.registerTask('casperjs', ['jshint', 'shell:casperjs']);
     
     grunt.registerTask('_webdriverjs', ['jshint', 'webdriver:all']);
     
