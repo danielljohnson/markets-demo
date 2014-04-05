@@ -63,7 +63,17 @@ module.exports = function(grunt) {
         all: {
           tests: ['test/webdriverjs/*.js']
         }
-      }
+      },
+      
+      shell: {
+        'cucumberjs': {
+          command: 'cucumber.js tests -f pretty',
+            options: {
+            stdout: true,
+            stderr: true
+          }
+        }
+      },
     });
     
     grunt.loadNpmTasks('grunt-contrib-concat');
