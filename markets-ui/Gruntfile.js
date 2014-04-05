@@ -61,6 +61,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-webdriver');
     
     grunt.registerTask('default', ['jshint']);
+    
     grunt.registerTask('_webdriverjs', ['jshint', 'webdriver:all']);
     
     grunt.registerTask('webdriverjs', function() {
