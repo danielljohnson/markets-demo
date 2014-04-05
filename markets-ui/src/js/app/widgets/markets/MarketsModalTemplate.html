@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close js-marketsFormClose" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">{{{ modalTitle model }}}</h4>
+            <h4 class="modal-title" id="myModalLabel">{{{ modalTitle model.id }}}</h4>
         </div>
         <div class="modal-body">
             <div class="alert alert-danger">
@@ -13,27 +13,27 @@
             <form role="form" class="js-marketsForm">
                 <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" value="{{ model.name }}">
+                <input type="text" class="form-control" name="name" id="name">
                 </div>
                 
                 <div class="form-group">
-                <label for="location">Location</label>
-                <select class="form-control" name="location" id="location"></select>
+                <label for="location_id">Location</label>
+                <select class="form-control" name="location_id" id="location_id"></select>
                 </div>
                 
                 <div class="form-group">
-                <label for="currency">Currency</label>
-                <select class="form-control" name="currency" id="currency"></select>
+                <label for="currency_id">Currency</label>
+                <select class="form-control" name="currency_id" id="currency_id"></select>
                 </div>
                 
                 <div class="form-group">
                 <label for="start_date">Start Date</label>
-                <input type="date" class="form-control" name="start_date" id="start_date" value="{{ model.start_date }}">
+                <input type="date" class="form-control" name="start_date" id="start_date">
                 </div>
                 
                 <div class="form-group">
                 <label for="end_date">End Date</label>
-                <input type="date" class="form-control" name="end_date" id="end_date" value="{{ model.end_date }}">
+                <input type="date" class="form-control" name="end_date" id="end_date">
                 </div>
             </form>
         </div>

@@ -59,8 +59,7 @@ define(
                 // create model view
                 var marketsModalWidget = new MarketsModalWidget({
                     collection: this.markets,
-                    model: new Market(),
-                    mode: 'create'
+                    model: new Market()
                 });
                 $('body').append(marketsModalWidget.render().$el);
                 

@@ -1,12 +1,13 @@
 define(
     [
         'keel/BaseView',
+        'app/domain/Market',
         'app/widgets/markets/MarketsRowWidget',
         'app/widgets/markets/MarketsModalWidget',
         'text!app/widgets/markets/marketsTableTemplate.html',
         'bootstrap'
     ],
-    function(BaseView, MarketsRowWidget, MarketsModalWidget, MarketsTableTemplate) {
+    function(BaseView, Market, MarketsRowWidget, MarketsModalWidget, MarketsTableTemplate) {
         'use strict';
 
         return BaseView.extend({
@@ -53,8 +54,7 @@ define(
                 // create model view
                 var marketsModalWidget = new MarketsModalWidget({
                     collection: this.collection,
-                    model: market,
-                    mode: 'update'
+                    model: market
                 });
                 $('body').append(marketsModalWidget.render().$el);
                 

@@ -13,11 +13,11 @@ define(
                     required: true
                 },
                 
-                currency: {
+                currency_id: {
                     required: true
                 },
                 
-                location: {
+                location_id: {
                     required: true
                 }
             }

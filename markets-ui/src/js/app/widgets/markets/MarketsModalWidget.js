@@ -32,8 +32,8 @@ define(
             bindings: {
                 'input#name': 'name',
                 
-                'select#currency': {
-                    observe: 'currency',
+                'select#currency_id': {
+                    observe: 'currency_id',
                     selectOptions: {
                         collection: Repository.getCurrencies(),
                         labelPath: 'description',
@@ -42,8 +42,8 @@ define(
                     }
                 },
                 
-                'select#location': {
-                    observe: 'location',
+                'select#location_id': {
+                    observe: 'location_id',
                     selectOptions: {
                         collection: Repository.getLocations(),
                         labelPath: 'name',
@@ -57,10 +57,7 @@ define(
                 'input#end_date': 'end_date'
             },
             
-            initialize: function(options) {
-                // set mode to create or update
-                this.mode = options.mode;
-                
+            initialize: function(options) {                
                 // bind model validation to view
                 Backbone.Validation.bind(this);
                 
@@ -73,6 +70,8 @@ define(
             
             postRender: function() {
                 this.stickit();
+                
+                console.log(this.model)
                 
                 return this;
             },
