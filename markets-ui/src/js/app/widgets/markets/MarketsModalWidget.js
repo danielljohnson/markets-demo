@@ -57,7 +57,10 @@ define(
                 'input#end_date': 'end_date'
             },
             
-            initialize: function(options) {                
+            initialize: function(options) {
+                // set mode to create or update
+                this.mode = options.mode;
+                                             
                 // bind model validation to view
                 Backbone.Validation.bind(this);
                 
@@ -70,8 +73,6 @@ define(
             
             postRender: function() {
                 this.stickit();
-                
-                console.log(this.model)
                 
                 return this;
             },

@@ -34,8 +34,8 @@ define(
                     return (Backbone.history.fragment === route) ? 'active' : '';
                 });
         
-                Handlebars.registerHelper('modalTitle', function(model) {
-                    return (_.isEmpty(model)) ? 'Create Market' : 'Edit ' + model.name;
+                Handlebars.registerHelper('modalTitle', function(model_id, model_name) {
+                    return (typeof model_id === 'undefined') ? 'Create Market' : 'Edit ' + model_name;
                 });
             }
         };

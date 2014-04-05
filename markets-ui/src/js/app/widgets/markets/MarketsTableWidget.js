@@ -27,7 +27,7 @@ define(
             initialize: function() {
                 this.listenTo(this.collection, 'reset change add remove', this.render);
                 
-                this.collection.fetch({reset: true});
+                this.collection.fetch();
             },
             
             postRender: function() {
@@ -54,7 +54,8 @@ define(
                 // create model view
                 var marketsModalWidget = new MarketsModalWidget({
                     collection: this.collection,
-                    model: market
+                    model: market,
+                    mode: 'update'
                 });
                 $('body').append(marketsModalWidget.render().$el);
                 

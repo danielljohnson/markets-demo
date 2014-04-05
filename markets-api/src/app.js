@@ -30,7 +30,7 @@ app.all('*', function(req, res, next) {
 
 // markets
 app.get('/markets', function(req, res) {
-  connection.query('SELECT market.*, currency.name AS currency_name, location.name AS location_name FROM market LEFT OUTER JOIN currency ON currency.id = market.currency_id LEFT OUTER JOIN location ON location.id = market.location_id', function(err, rows) {
+  connection.query('SELECT * FROM market', function(err, rows) {
     res.json(200, rows);
   });
 });
@@ -38,7 +38,7 @@ app.get('/markets', function(req, res) {
 app.get('/markets/:id', function(req, res) {
   var id = req.params.id;
   
-  connection.query('SELECT market.*, currency.name AS currency_name, location.name AS location_name FROM market LEFT OUTER JOIN currency ON currency.id = market.currency_id LEFT OUTER JOIN location ON location.id = market.location_id WHERE market.id = ?', [id], function(err, rows) {
+  connection.query('SELECT * FROM market WHERE id = ?', [id], function(err, rows) {
     if (rows.length === 0) {
       res.send(404);
     } else {

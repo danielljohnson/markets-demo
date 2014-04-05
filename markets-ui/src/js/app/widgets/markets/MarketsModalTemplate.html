@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close js-marketsFormClose" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">{{{ modalTitle model.id }}}</h4>
+            <h4 class="modal-title" id="myModalLabel">{{{ modalTitle id name }}}</h4>
         </div>
         <div class="modal-body">
             <div class="alert alert-danger">
@@ -39,7 +39,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default js-marketsFormClose">Close</button>
-            <button type="button" class="btn btn-primary js-marketsFormSave" data-id="{{ model.id }}">Save</button>
+            <button type="button" class="btn btn-primary js-marketsFormSave" data-id="{{ id }}">Save</button>
         </div>
     </div>
 </div>
