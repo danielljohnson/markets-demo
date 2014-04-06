@@ -56,7 +56,7 @@ app.post('/markets', function(req, res) {
         'error': err
       });
     } else {
-      res.location('/markets/' + result.insertId)
+      res.location('/markets/' + result.insertId);
       res.json(201, {
         id: result.insertId
       });

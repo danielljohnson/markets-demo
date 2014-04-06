@@ -4,37 +4,23 @@ module.exports = function(grunt) {
     grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
       
-      concat: {
-        options: {
-          separator: ';'
-        },
-        
-        app: {
-          src: ['src/*.js'],
-          dest: 'dist/<%= pkg.name %>-app.js'
-        }
-      },
-      
-      uglify: {
-        options: {
-          banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-        },
-        dist: {
-          files: {
-            'dist/<%= pkg.name %>-app.min.js': ['<%= concat.app.dest %>']
-          }
-        }
-      },
-      
       jshint: {
         all: ['Gruntfile.js', 'src/*.js'],
+      },
+      
+      shell: {
+        mocha: {
+          options: {
+            stdout: true
+          },
+          command: 'mocha --reporter spec',
+        },
       }
     });
-    
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-shell');
     
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('test', ['shell:mocha']);
 };
