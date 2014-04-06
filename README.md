@@ -3,17 +3,19 @@ markets-demo
 
 create mysql database using schema.sql in markets-api
 
-npm install in markets-api and markets-ui
+install node modules in both markets-api and markets-ui directories and then install cucumber using
 
-npm install -g cucumber
+    npm install -g cucumber
 
-install selenium and chrome driver, add to system path
+install selenium and chrome driver (see selenium website for details), add to system path
 
 set baseUrl in markets-ui/test/webdriverjs/test.js and markets-ui/test/casperjs/test.js
 
 set appRoot in markets-ui/src/js/app/framework/AppConfig.js
 
-node src/app.js in markets-api to start api server at localhost:3000
+start api server at localhost:3000 by running the following in markets-api
+
+    node src/app.js
 
 run api tests in markets-api using
 
