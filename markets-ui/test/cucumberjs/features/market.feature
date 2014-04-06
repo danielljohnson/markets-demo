@@ -1,4 +1,4 @@
-Feature: Markets
+Feature: Market
   Background: 
     Given that I am on the markets page
     Then the browser title should be "Markets"

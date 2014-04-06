@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       },
       
       jshint: {
-        all: ['Gruntfile.js', 'src/js/app/**/*.js'],
+        all: ['Gruntfile.js', 'src/js/app/**/*.js', 'test/**/*.js'],
       },
         
       watch: {
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
       
       shell: {
         'cucumberjs': {
-          command: 'cucumber.js tests -f pretty',
+          command: 'cucumber.js test/cucumberjs -f pretty',
             options: {
             stdout: true,
             stderr: true
@@ -80,14 +80,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-webdriver');
     grunt.loadNpmTasks('grunt-casper');
     
     grunt.registerTask('default', ['jshint']);
     
-    grunt.registerTask('casperjs', ['jshint', 'shell:casperjs']);
-    
-    grunt.registerTask('_webdriverjs', ['jshint', 'webdriver:all']);
+    grunt.registerTask('_webdriverjs', ['webdriver:all']);
     
     grunt.registerTask('webdriverjs', function() {
       var browser = grunt.option('browser') || 'phantomjs';
@@ -96,4 +95,6 @@ module.exports = function(grunt) {
       
       grunt.task.run('_webdriverjs');
     });
+    
+    grunt.registerTask('cucumber', ['shell:cucumberjs']);
 };

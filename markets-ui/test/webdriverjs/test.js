@@ -1,11 +1,13 @@
 var assert = require('assert');
 
 describe('Markets', function() {
+    'use strict';
+  
     var baseUrl = 'http://127.0.0.1/~Dan/markets-demo/markets-ui/src/';
     
     before(function() {
         browser.windowHandleSize({width: 1024, height: 768});
-    })
+    });
     
     after(function(done) {
         browser.end(done);
@@ -19,7 +21,7 @@ describe('Markets', function() {
                     assert(err === null);
                     assert(title === 'Markets');
                 })
-                .call(done)
+                .call(done);
         });
       
         it('launch modal', function(done) {
@@ -41,7 +43,7 @@ describe('Markets', function() {
                 .click('#currency_id option[value="1"]')
                 .click('.js-marketsFormSave')
                 .pause(2000) // wait for modal to fadeOut
-                .call(done)
+                .call(done);
         });
         
         it('test number of rows in table is 1', function(done) {
@@ -59,7 +61,7 @@ describe('Markets', function() {
                     assert(err === null);
                     assert(result === 'test');
                 })
-                .call(done)
+                .call(done);
         });
     });
     
@@ -71,7 +73,7 @@ describe('Markets', function() {
                     assert(err === null);
                     assert(title === 'Markets');
                 })
-                .call(done)
+                .call(done);
         });
         
         it('launch modal', function(done) {
@@ -87,7 +89,7 @@ describe('Markets', function() {
                 .setValue('#name', 'test2')
                 .click('.js-marketsFormSave')
                 .pause(2000) // wait for modal to fadeOut
-                .call(done)
+                .call(done);
         });
         
         it('test number of rows in table is 1', function(done) {
@@ -105,7 +107,7 @@ describe('Markets', function() {
                     assert(err === null);
                     assert(result === 'test2');
                 })
-                .call(done)
+                .call(done);
         });
     });
     
@@ -117,7 +119,7 @@ describe('Markets', function() {
                     assert(err === null);
                     assert(title === 'Markets');
                 })
-                .call(done)
+                .call(done);
         });
         
         it('delete market', function(done) {

@@ -1,8 +1,10 @@
-'use strict';
-
 var assert = require('assert');
 
 function Market() {
+  'use strict';
+  
+  /* jshint validthis: true */
+  
   this.World = require('../../support/world.js').World;
   
   this.Given(/^that I am on the markets page$/, function (callback) {
@@ -15,8 +17,8 @@ function Market() {
     this.client
       .getTitle(function(err, title) {
         assert(err === null);
-        assert(title === arg1)
-        callback()
+        assert(title === arg1);
+        callback();
       });
   });
   
@@ -75,7 +77,7 @@ function Market() {
         .setValue('#name', 'test2')
         .click('.js-marketsFormSave')
         .pause(2000) // wait for modal to fadeOut
-        .call(callback)
+        .call(callback);
   });
 
   this.Then(/^the updated market should show up in the table$/, function (callback) {

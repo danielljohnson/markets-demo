@@ -1,6 +1,7 @@
-'use strict';
-
 function hooks() {
+  'use strict';
+  
+  /* jshint validthis: true */
   
   this.Before('@selenium', function(callback) {
     this.client.init().windowHandleSize({width: 1024, height: 768});
@@ -14,6 +15,6 @@ function hooks() {
     });
   });
   
-};
+}
 
 module.exports = hooks;

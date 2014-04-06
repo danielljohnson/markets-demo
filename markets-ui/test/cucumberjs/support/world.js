@@ -1,11 +1,11 @@
-'use strict';
-
 var webdriverjs = require('webdriverjs');
 
 var World = function World(callback) {
+  'use strict';
+  
   var client = webdriverjs.remote({
     desiredCapabilities: {
-      browserName: 'chrome'
+      browserName: 'phantomjs'
     },
     logLevel: 'silent'
   });

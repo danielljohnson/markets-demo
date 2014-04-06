@@ -24,7 +24,7 @@ casper.test.begin('Add Market', 6, function suite(test) {
         test.assertField('location_id', '1');
         test.assertField('currency_id', '1');
         
-        casper.click('.js-marketsFormSave')
+        casper.click('.js-marketsFormSave');
     });
     
     // wait for modal to fade out
@@ -62,7 +62,7 @@ casper.test.begin('Edit Market', 6, function suite(test) {
         test.assertField('location_id', '1');
         test.assertField('currency_id', '1');
         
-        casper.click('.js-marketsFormSave')
+        casper.click('.js-marketsFormSave');
     });
     
     // wait for modal to fade out
