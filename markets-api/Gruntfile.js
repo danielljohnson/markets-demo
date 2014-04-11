@@ -6,15 +6,6 @@ module.exports = function(grunt) {
       
       jshint: {
         all: ['Gruntfile.js', 'src/*.js'],
-      },
-      
-      shell: {
-        mocha: {
-          options: {
-            stdout: true
-          },
-          command: 'mocha --reporter spec',
-        },
       }
     });
 
@@ -22,5 +13,4 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-shell');
     
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('test', ['shell:mocha']);
 };

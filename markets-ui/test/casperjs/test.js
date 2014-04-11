@@ -1,4 +1,4 @@
-var baseUrl = 'http://127.0.0.1/~Dan/markets-demo/markets-ui/src/';
+var baseUrl = 'http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/';
 
 casper.test.begin('Add Market', 6, function suite(test) {
     casper.start(baseUrl + '#markets', function() {

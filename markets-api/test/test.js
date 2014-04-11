@@ -2,20 +2,33 @@ var assert = require('assert');
 var supertest = require('supertest');
 var api = supertest('http://localhost:3000');
 
-// store _id once market is created
+// mocha --bail --reporter spec
+
+// store id once market is created
 var marketId;
 
 describe('GET /markets', function() {
-  it('respond with json', function(done) {
+  it('respond with an empty list in json format', function(done) {
     api
       .get('/markets')
       .set('Content-Type', 'application/json')
       .expect('Content-Type', /json/)
+      .expect(function(res) {
+        if (res.body.length > 0) throw new Error('Markets table is not empty');
+      })
       .expect(200, done);
   });
 });
 
 describe('POST /markets', function() {
+  it('does not creates a market if there\'s no name', function(done) {
+    api
+      .post('/markets')
+      .set('Content-Type', 'application/json')
+      .send({})
+      .expect(500, done);
+  });
+  
   it('creates a market', function(done) {
     api
       .post('/markets')
@@ -25,18 +38,21 @@ describe('POST /markets', function() {
       })
       .expect(201)
       .end(function(err, res) {
-        if (err) {
-          return done(err);
-        } else {
-          marketId = res.body.id;
-        }
+        marketId = res.body.id;
         done()
       });
   });
 });
 
 describe('GET /markets/:id', function() {
-  it('gets the right market', function(done) {
+  it('sends a 404 if the market is not found', function(done) {
+    api
+      .get('/markets/100')
+      .set('Content-Type', 'application/json')
+      .expect(404, done);
+  });
+  
+  it('gets the market', function(done) {
     api
       .get('/markets/' + marketId)
       .set('Content-Type', 'application/json')

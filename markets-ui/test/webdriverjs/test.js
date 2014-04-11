@@ -3,7 +3,7 @@ var assert = require('assert');
 describe('Markets', function() {
     'use strict';
   
-    var baseUrl = 'http://127.0.0.1/~Dan/markets-demo/markets-ui/src/';
+    var baseUrl = 'http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/';
     
     before(function() {
         browser.windowHandleSize({width: 1024, height: 768});
