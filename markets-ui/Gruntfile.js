@@ -92,10 +92,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-webdriver');
     grunt.loadNpmTasks('grunt-casper');
     
+    // default
     grunt.registerTask('default', ['jshint']);
     
+    // webdriver selenium
     grunt.registerTask('_webdriverjs', ['webdriver:all']);
     
+    // grunt webdriverjs --browser=chrome
     grunt.registerTask('webdriverjs', function() {
       var browser = grunt.option('browser') || 'phantomjs';
       
@@ -104,7 +107,9 @@ module.exports = function(grunt) {
       grunt.task.run('_webdriverjs');
     });
     
+    // cucumberjs
     grunt.registerTask('cucumber', ['shell:cucumberjs']);
     
+    // run unit tests using mocha and phantom
     grunt.registerTask('unit', ['shell:mocha-phantomjs']);
 };
