@@ -72,8 +72,16 @@ module.exports = function(grunt) {
             stdout: true,
             stderr: true
           }
-        }
-      },
+        },
+        
+        'mocha-phantomjs': {
+          command: 'mocha-phantomjs -R spec http://127.0.0.1/~djohn3/markets-demo/markets-ui/test/unit/specRunner.html',
+            options: {
+              stdout: true,
+              stderr: true
+            }
+         }
+      }
     });
     
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -97,4 +105,6 @@ module.exports = function(grunt) {
     });
     
     grunt.registerTask('cucumber', ['shell:cucumberjs']);
+    
+    grunt.registerTask('unit', ['shell:mocha-phantomjs']);
 };

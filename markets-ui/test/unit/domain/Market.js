@@ -1,9 +1,12 @@
-var assert = require('assert');
-
 // mocha --bail --reporter spec
 
-describe('GET /markets', function() {
-  it('respond with an empty list in json format', function(done) {
-    
+define(['chai', 'app/domain/Market'], function(chai, Market) {
+  var assert = chai.assert;
+  
+  describe('Math', function() {
+    it('adds', function() {
+      assert.equal(1+ 1, 2);
+    });
   });
+  
 });

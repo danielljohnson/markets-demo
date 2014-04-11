@@ -1,30 +1,35 @@
 // Set up the "require" variable which RequireJS will pick up when it is loaded in main.js.
 // This ensures that the configuration loads before any other scripts are required in.
-var require = {
-    // Initialize the application with the main application file
-    deps: ['main'],
-
+require.config({
+    urlArgs: "v="+(new Date()).getTime(),
+  
     paths: {
         // jQuery
-        jquery:                      'vendor/jquery-2.0.3',
+        jquery:                      '../../src/js/vendor/jquery-2.0.3',
 
         // Underscore
-        underscore:                  'vendor/underscore-1.5.2',
+        underscore:                  '../../src/js/vendor/underscore-1.5.2',
 
         // Backbone
-        backbone:                    'vendor/backbone-1.1.0',
+        backbone:                    '../../src/js/vendor/backbone-1.1.0',
         
         // Backbone Stickit
-        'backbone.stickit':          'vendor/backbone.stickit',
+        'backbone.stickit':          '../../src/js/vendor/backbone.stickit',
         
         // Backbone Validation
-        'backbone.validation':       'vendor/backbone-validation',
+        'backbone.validation':       '../../src/js/vendor/backbone-validation',
 
         // Templating
-        handlebars:                  'vendor/handlebars-v1.3.0',
+        handlebars:                  '../../src/js/vendor/handlebars-v1.3.0',
 
         // Bootstrap
-        bootstrap:                   'vendor/bootstrap'
+        bootstrap:                   '../../src/js/vendor/bootstrap',
+        
+        // chai
+        chai:                        '../../node_modules/chai/chai',
+        
+        // app
+        app:                         '../../src/js/app'
     },
 
     shim: {
@@ -51,4 +56,13 @@ var require = {
             exports: '_'
         }
     }
-};
+});
+
+// load and run the test modules
+require(['domain/Market'], function() {
+    if (window.mochaPhantomJS) { 
+        mochaPhantomJS.run();
+    } else {
+        mocha.run();
+    }
+});
