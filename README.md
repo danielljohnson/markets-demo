@@ -3,9 +3,10 @@ markets-demo
 
 create mysql database using schema.sql in markets-api
 
-install node modules in both markets-api and markets-ui directories and then install cucumber using
+install node modules in both markets-api and markets-ui directories and then install the follwing globally
 
     npm install -g cucumber
+    npm install -g mocha-phantomjs phantomjs
 
 install selenium and chrome driver (see selenium website for details), add to system path
 
