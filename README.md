@@ -19,7 +19,7 @@ start api server at localhost:3000 by running the following in markets-api
 
 run api tests in markets-api using
 
-    grunt test
+    mocha --reporter spec
 
 run webdriverjs tests using
 
