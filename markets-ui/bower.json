@@ -1,0 +1,14 @@
+{
+  "name": "markets-ui",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "2.1.0",
+    "backbone": "1.1.2",
+    "backbone.stickit": "0.8.0",
+    "backbone-validation": "0.9.1",
+    "bootstrap": "3.1.1",
+    "handlebars.js": "2.0.0-alpha.2",
+    "modernizr": "2.7.2",
+    "requirejs": "2.1.11"
+  }
+}
