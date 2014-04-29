@@ -5,31 +5,37 @@ require.config({
   
     paths: {
         // jQuery
-        jquery:                      '../../src/js/vendor/jquery-2.0.3',
+        jquery:                      '../../bower_components/jquery/dist/jquery',
 
         // Underscore
-        underscore:                  '../../src/js/vendor/underscore-1.5.2',
+        underscore:                  '../../bower_components/underscore/underscore',
 
         // Backbone
-        backbone:                    '../../src/js/vendor/backbone-1.1.0',
+        backbone:                    '../../bower_components/backbone/backbone',
         
         // Backbone Stickit
-        'backbone.stickit':          '../../src/js/vendor/backbone.stickit',
+        'backbone.stickit':          '../../bower_components/backbone.stickit/backbone.stickit',
         
         // Backbone Validation
-        'backbone.validation':       '../../src/js/vendor/backbone-validation',
+        'backbone.validation':       '../../bower_components/backbone-validation/dist/backbone-validation',
 
         // Templating
-        handlebars:                  '../../src/js/vendor/handlebars-v1.3.0',
+        handlebars:                  '../../bower_components/handlebars/handlebars',
 
         // Bootstrap
-        bootstrap:                   '../../src/js/vendor/bootstrap',
+        bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap',
+        
+        // requirejs-text
+        text:                        '../../bower_components/requirejs-text/text',
         
         // chai
         chai:                        '../../node_modules/chai/chai',
         
         // app
-        app:                         '../../src/js/app'
+        app:                         '../../src/js/app',
+        
+        // keel
+        keel:                        '../../src/js/keel'
     },
 
     shim: {
@@ -59,7 +65,10 @@ require.config({
 });
 
 // load and run the test modules
-require(['domain/Market'], function() {
+require([
+    'domain/Market',
+    'pages/Markets/MarketsPage'
+], function() {
     if (window.mochaPhantomJS) { 
         mochaPhantomJS.run();
     } else {

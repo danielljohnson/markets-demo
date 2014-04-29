@@ -62,6 +62,7 @@ define(
                     model: new Market(),
                     mode: 'create'
                 });
+                
                 $('body').append(marketsModalWidget.render().$el);
                 
                 // remove modal view when it's hidden

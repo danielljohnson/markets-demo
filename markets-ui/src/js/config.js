@@ -24,7 +24,10 @@ var require = {
         handlebars:                  '../../bower_components/handlebars/handlebars',
 
         // Bootstrap
-        bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap'
+        bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap',
+        
+        // requirejs-text
+        text:                        '../../bower_components/requirejs-text/text'
     },
 
     shim: {

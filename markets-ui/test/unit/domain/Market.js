@@ -7,7 +7,7 @@ define(['backbone', 'chai', 'app/domain/Market', 'backbone.validation'], functio
     _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
   });
   
-  describe('Market', function() {
+  describe('Market Model', function() {
       
     it('validation passes if required attributes are set', function() {
       var market = new Market();
