@@ -21,7 +21,7 @@ var require = {
         'backbone.validation':       '../../bower_components/backbone-validation/dist/backbone-validation',
 
         // Templating
-        handlebars:                  '../../bower_components/handlebars.js/lib/handlebars',
+        handlebars:                  '../../bower_components/handlebars/handlebars',
 
         // Bootstrap
         bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap'
