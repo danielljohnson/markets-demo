@@ -3,7 +3,11 @@ markets-demo
 
 create a mysql database using schema.sql in markets-api
 
-install the node modules in both markets-api and markets-ui directories and then install the follwing globally
+install the node modules in both markets-api and markets-ui directories 
+
+    npm install
+
+install the following node modules globally
 
     npm install -g cucumber
     npm install -g mocha-phantomjs phantomjs
