@@ -1,5 +1,3 @@
-// mocha --bail --reporter spec
-
 define(['backbone', 'chai', 'app/domain/Market', 'backbone.validation'], function(Backbone, chai, Market) {
   var assert = chai.assert;
   
@@ -8,7 +6,6 @@ define(['backbone', 'chai', 'app/domain/Market', 'backbone.validation'], functio
   });
   
   describe('Market Model', function() {
-      
     it('validation passes if required attributes are set', function() {
       var market = new Market();
       
@@ -28,7 +25,6 @@ define(['backbone', 'chai', 'app/domain/Market', 'backbone.validation'], functio
         
       assert.equal(isValid, false);
     });
-    
   });
   
 });

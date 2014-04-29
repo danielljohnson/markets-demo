@@ -1,5 +1,3 @@
-// mocha --bail --reporter spec
-
 define([
   'chai',
   'app/framework/HandlebarsUtil',
