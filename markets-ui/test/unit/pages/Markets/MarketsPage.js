@@ -10,14 +10,12 @@ define([
   });
   
   describe('Markets Page', function() {
-      
     it('renders the right element and id attribute', function() {
       var view = new MarketsPage();
       
       assert.equal(view.render().el.tagName.toLowerCase(), 'section');
       assert.equal(view.render().el.id, 'markets-page');
     });
-    
   });
   
 });
