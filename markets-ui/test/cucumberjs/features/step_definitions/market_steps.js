@@ -35,8 +35,8 @@ function Market() {
     this.client
       .setValue('#name', 'test')
       .getValue('#name', function(err, value) {
-          assert(err === null);
-          assert(value === 'test');
+        assert(err === null);
+        assert(value === 'test');
       })
       .click('#location_id option[value="1"]')
       .click('#currency_id option[value="1"]')
@@ -53,61 +53,66 @@ function Market() {
   this.Then(/^the new market should show up in the table$/, function (callback) {
     this.client
       .elements('.js-marketsTable tbody tr', function(err, elements) {
-          assert(err === null);
-          assert(elements.value.length === 1);
+        assert(err === null);
+        assert(elements.value.length === 1);
       })
       .getText('.js-marketsTable tbody tr:nth-child(1) td:nth-child(1)', function(err, result) {
-          assert(err === null);
-          assert(result === 'test');
+        assert(err === null);
+        assert(result === 'test');
       })
       .call(callback);
   });
   
-  // Edit Market
+  // Edit market
   this.When(/^I click the edit link on the first table row$/, function (callback) {
     this.client
-        .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
-        .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-edit')
-        .pause(2000) // wait for modal to fadeIn
-        .call(callback);
+      .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
+      .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-edit')
+      .pause(2000) // wait for modal to fadeIn
+      .call(callback);
   });
 
   this.When(/^change the market name in the modal form$/, function (callback) {
     this.client
-        .setValue('#name', 'test2')
-        .click('.js-marketsFormSave')
-        .pause(2000) // wait for modal to fadeOut
-        .call(callback);
+      .setValue('#name', 'test2')
+      .call(callback);
+  });
+  
+  this.When(/^click submit$/, function (callback) {
+    this.client
+      .click('.js-marketsFormSave')
+      .pause(2000) // wait for modal to fadeOut
+      .call(callback);
   });
 
   this.Then(/^the updated market should show up in the table$/, function (callback) {
     this.client
-        .elements('.js-marketsTable tbody tr', function(err, elements) {
-            assert(err === null);
-            assert(elements.value.length === 1);
-        })
-        .getText('.js-marketsTable tbody tr:nth-child(1) td:nth-child(1)', function(err, result) {
-            assert(err === null);
-            assert(result === 'test2');
-        })
-        .call(callback);
+      .elements('.js-marketsTable tbody tr', function(err, elements) {
+        assert(err === null);
+        assert(elements.value.length === 1);
+      })
+      .getText('.js-marketsTable tbody tr:nth-child(1) td:nth-child(1)', function(err, result) {
+        assert(err === null);
+        assert(result === 'test2');
+      })
+      .call(callback);
   });
   
   // Delete market
   this.When(/^I click the delete link on the first table row$/, function (callback) {
     this.client
-        .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
-        .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-delete')
-        .call(callback);
+      .waitFor('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6)')
+      .click('.js-marketsTable tbody tr:nth-child(1) td:nth-child(6) a.js-delete')
+      .call(callback);
   });
 
   this.Then(/^the market is deleted$/, function (callback) {
     this.client
-        .elements('.js-marketsTable tbody tr', function(err, elements) {
-            assert(err === null);
-            assert(elements.value.length === 0);
-        })
-        .call(callback);
+      .elements('.js-marketsTable tbody tr', function(err, elements) {
+        assert(err === null);
+        assert(elements.value.length === 0);
+      })
+      .call(callback);
   });
 }
 
