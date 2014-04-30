@@ -52,6 +52,10 @@ var require = {
 
         underscore: {
             exports: '_'
+        },
+        
+        bootstrap: {
+            deps: ['jquery']
         }
     }
 };

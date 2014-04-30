@@ -60,6 +60,10 @@ require.config({
 
         underscore: {
             exports: '_'
+        },
+        
+        bootstrap: {
+            deps: ['jquery']
         }
     }
 });
