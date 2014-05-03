@@ -3,7 +3,13 @@
 require.config({
     //urlArgs: "v="+(new Date()).getTime(),
     
-    baseUrl: '/base',
+    baseUrl: (function() {
+      if (window.__karma__) {
+        return '/base';
+      } else {
+        return '../../';
+      }
+    })(),
   
     paths: {
         // jQuery
@@ -35,7 +41,6 @@ require.config({
         
         // app
         app:                         'src/js/app',
-        // app:                         'src/js/instrumented-app',
         
         // keel
         keel:                        'src/js/keel'
@@ -75,17 +80,15 @@ require.config({
       'test/unit/pages/Markets/MarketsPage'
     ],
     
-    callback: window.__karma__.start
+    callback: function() {
+      if (window.__karma__) {
+        window.__karma__.start();
+      }
+      
+      if (window.mochaPhantomJS) { 
+        mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
+    }
 });
-
-// load and run the test modules if not using karma
-// require([
-//     'test/unit/domain/Market',
-//     'test/unit/pages/Markets/MarketsPage'
-// ], function() {
-//     if (window.mochaPhantomJS) { 
-//         mochaPhantomJS.run();
-//     } else {
-//         mocha.run();
-//     }
-// });
