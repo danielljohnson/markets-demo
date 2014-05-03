@@ -48,7 +48,7 @@ run mocha unit tests using karma and generate code coverage reports with istanbu
 
     grunt unit
     
-JSCover
+JSCover (assumes you've downloaded the JSCover-1.0.7 directory in the root of the project)
 
     java -jar JSCover-1.0.7/target/dist/JSCover-all.jar -ws --document-root=markets-ui --report-dir=markets-ui/test/target --no-instrument=/src/js/keel/ --no-instrument=/bower_components/ --no-instrument=/node_modules/ --no-instrument=/test/
     
