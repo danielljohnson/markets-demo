@@ -44,7 +44,7 @@ run cucumber tests
 
     grunt cucumber
     
-run unit tests using karma and generate code coverage reports
+run mocha unit tests using karma and generate code coverage reports with istanbul
 
     grunt unit
     
