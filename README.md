@@ -27,7 +27,7 @@ start api server at localhost:3000 by running the following in markets-api
 
     node src/app.js
 
-run api tests in markets-api using
+run api tests in markets-api
 
     mocha --reporter spec
 
@@ -36,15 +36,15 @@ run webdriverjs tests using
     grunt webdriverjs --browser=chrome
     grunt webdriverjs --browser=phantomjs
     
-run casperjs tests using
+run casperjs tests
 
     grunt casper:all
     
-run cucumber tests using
+run cucumber tests
 
     grunt cucumber
     
-run unit tests using karma and generate code coverage reports using
+run unit tests using karma and generate code coverage reports
 
     grunt unit
     
