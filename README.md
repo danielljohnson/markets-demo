@@ -13,7 +13,7 @@ install the following node modules globally
     npm install -g mocha-phantomjs phantomjs
     npm install -g karma-cli
 
-install selenium and chrome driver (see selenium website for details), add to system path
+install selenium server and chrome driver (see selenium website for details), add to system path
 
 install markets-ui vendor files using bower
 
