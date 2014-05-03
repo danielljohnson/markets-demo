@@ -45,6 +45,6 @@ run cucumber tests using
     
 JSCover
 
-java -jar JSCover-1.0.7/target/dist/JSCover-all.jar -ws --document-root=markets-ui --report-dir=markets-ui/test/target --no-instrument=/src/js/keel/ --no-instrument=/bower_components/ --no-instrument=/node_modules/ --no-instrument=/test/
+    java -jar JSCover-1.0.7/target/dist/JSCover-all.jar -ws --document-root=markets-ui --report-dir=markets-ui/test/target --no-instrument=/src/js/keel/ --no-instrument=/bower_components/ --no-instrument=/node_modules/ --no-instrument=/test/
     
 then browse to http://localhost:8080/jscoverage.html?test/unit/specRunner.html
