@@ -31,15 +31,17 @@ define(
             },
             
             postRender: function() {
+                var that = this;
+                
                 this.collection.each(function(market) {
-                    this.addChild({
+                    that.addChild({
                         viewClass: MarketsRowWidget,
-                        parentElement: this.$el.find('tbody'),
+                        parentElement: that.$el.find('tbody'),
                         options: {
                             model: market
                         }
                     });
-                }.bind(this));
+                });
                 
                 return this;
             },
