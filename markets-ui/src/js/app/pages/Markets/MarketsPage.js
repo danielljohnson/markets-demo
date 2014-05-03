@@ -1,14 +1,14 @@
 define(
     [
         'keel/BaseView',
-        'app/widgets/navbar/NavBarWidget',
+        'app/widgets/navbar/NavbarWidget',
         'app/widgets/markets/MarketsTableWidget',
         'app/widgets/markets/MarketsModalWidget',
         'app/domain/Market',
         'app/domain/Markets',
         'text!app/pages/Markets/MarketsPageTemplate.html'
     ],
-    function(BaseView, NavBarWidget, MarketsTableWidget, MarketsModalWidget, Market, Markets, MarketsPageTemplate) {
+    function(BaseView, NavbarWidget, MarketsTableWidget, MarketsModalWidget, Market, Markets, MarketsPageTemplate) {
         'use strict';
 
         return BaseView.extend({
@@ -35,8 +35,8 @@ define(
             postRender: function() {
                 this.addChildren([
                     {
-                        id: 'NavBarWidget',
-                        viewClass: NavBarWidget,
+                        id: 'NavbarWidget',
+                        viewClass: NavbarWidget,
                         parentElement: this.$el
                     },
                     {

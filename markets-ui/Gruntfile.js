@@ -33,6 +33,9 @@ module.exports = function(grunt) {
       
       jshint: {
         all: ['Gruntfile.js', 'src/js/app/**/*.js', 'test/**/*.js'],
+        options: {
+          ignores: ['src/js/app/**/*Template.html.js']
+        }
       },
         
       watch: {
@@ -75,12 +78,29 @@ module.exports = function(grunt) {
         },
         
         'mocha-phantomjs': {
-          command: 'mocha-phantomjs -R spec http://127.0.0.1/~djohn3/markets-demo/markets-ui/test/unit/specRunner.html',
+          command: 'mocha-phantomjs --reporter json  http://127.0.0.1/~djohn3/markets-demo/markets-ui/test/unit/specRunner.html',
             options: {
               stdout: true,
               stderr: true
             }
+         },
+         
+         'instrument': {
+             command: 'istanbul instrument src/js/app --output src/js/instrumented-app --complete-copy'
          }
+      },
+      
+      handlebars: {
+        compile: {
+          options: {
+            namespace: false,
+            amd: true
+          },
+          files: {
+            'src/js/app/pages/Home/HomePageTemplate.html.js': 'src/js/app/pages/Home/HomePageTemplate.html',
+            'src/js/app/pages/Markets/MarketsPageTemplate.html.js': 'src/js/app/pages/Markets/MarketsPageTemplate.html'
+          }
+        }
       }
     });
     
@@ -88,12 +108,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-webdriver');
     grunt.loadNpmTasks('grunt-casper');
     
     // default
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'handlebars']);
     
     // webdriver selenium
     grunt.registerTask('_webdriverjs', ['webdriver:all']);
@@ -111,5 +132,5 @@ module.exports = function(grunt) {
     grunt.registerTask('cucumber', ['shell:cucumberjs']);
     
     // run unit tests using mocha and phantom
-    grunt.registerTask('unit', ['shell:mocha-phantomjs']);
+    // grunt.registerTask('unit', ['shell:instrument', 'shell:mocha-phantomjs']);
 };

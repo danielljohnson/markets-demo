@@ -4,7 +4,7 @@ define(
         'app/domain/Market',
         'app/widgets/markets/MarketsRowWidget',
         'app/widgets/markets/MarketsModalWidget',
-        'text!app/widgets/markets/marketsTableTemplate.html',
+        'text!app/widgets/markets/MarketsTableTemplate.html',
         'bootstrap'
     ],
     function(BaseView, Market, MarketsRowWidget, MarketsModalWidget, MarketsTableTemplate) {

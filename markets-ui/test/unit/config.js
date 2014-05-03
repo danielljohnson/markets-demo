@@ -1,41 +1,44 @@
 // Set up the "require" variable which RequireJS will pick up when it is loaded in main.js.
 // This ensures that the configuration loads before any other scripts are required in.
 require.config({
-    urlArgs: "v="+(new Date()).getTime(),
+    //urlArgs: "v="+(new Date()).getTime(),
+    
+    baseUrl: '/base',
   
     paths: {
         // jQuery
-        jquery:                      '../../bower_components/jquery/dist/jquery',
+        jquery:                      'bower_components/jquery/dist/jquery',
 
         // Underscore
-        underscore:                  '../../bower_components/underscore/underscore',
+        underscore:                  'bower_components/underscore/underscore',
 
         // Backbone
-        backbone:                    '../../bower_components/backbone/backbone',
+        backbone:                    'bower_components/backbone/backbone',
         
         // Backbone Stickit
-        'backbone.stickit':          '../../bower_components/backbone.stickit/backbone.stickit',
+        'backbone.stickit':          'bower_components/backbone.stickit/backbone.stickit',
         
         // Backbone Validation
-        'backbone.validation':       '../../bower_components/backbone-validation/dist/backbone-validation',
+        'backbone.validation':       'bower_components/backbone-validation/dist/backbone-validation',
 
         // Templating
-        handlebars:                  '../../bower_components/handlebars/handlebars',
+        handlebars:                  'bower_components/handlebars/handlebars',
 
         // Bootstrap
-        bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap',
+        bootstrap:                   'bower_components/bootstrap/dist/js/bootstrap',
         
         // requirejs-text
-        text:                        '../../bower_components/requirejs-text/text',
+        text:                        'bower_components/requirejs-text/text',
         
         // chai
-        chai:                        '../../node_modules/chai/chai',
+        chai:                        'node_modules/chai/chai',
         
         // app
-        app:                         '../../src/js/app',
+        app:                         'src/js/app',
+        // app:                         'src/js/instrumented-app',
         
         // keel
-        keel:                        '../../src/js/keel'
+        keel:                        'src/js/keel'
     },
 
     shim: {
@@ -65,17 +68,24 @@ require.config({
         bootstrap: {
             deps: ['jquery']
         }
-    }
+    },
+    
+    deps: [
+      'test/unit/domain/Market',
+      'test/unit/pages/Markets/MarketsPage'
+    ],
+    
+    callback: window.__karma__.start
 });
 
-// load and run the test modules
-require([
-    'domain/Market',
-    'pages/Markets/MarketsPage'
-], function() {
-    if (window.mochaPhantomJS) { 
-        mochaPhantomJS.run();
-    } else {
-        mocha.run();
-    }
-});
+// load and run the test modules if not using karma
+// require([
+//     'test/unit/domain/Market',
+//     'test/unit/pages/Markets/MarketsPage'
+// ], function() {
+//     if (window.mochaPhantomJS) { 
+//         mochaPhantomJS.run();
+//     } else {
+//         mocha.run();
+//     }
+// });
