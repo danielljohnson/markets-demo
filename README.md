@@ -31,7 +31,7 @@ run api tests in markets-api
 
     mocha --reporter spec
 
-run webdriverjs tests using
+run webdriverjs tests
 
     grunt webdriverjs --browser=chrome
     grunt webdriverjs --browser=phantomjs
