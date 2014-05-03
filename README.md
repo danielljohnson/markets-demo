@@ -11,6 +11,7 @@ install the following node modules globally
 
     npm install -g cucumber
     npm install -g mocha-phantomjs phantomjs
+    npm install -g karma-cli
 
 install selenium and chrome driver (see selenium website for details), add to system path
 
@@ -42,6 +43,10 @@ run casperjs tests using
 run cucumber tests using
 
     grunt cucumber
+    
+run unit tests using karma and generate code coverage reports using
+
+    grunt unit
     
 JSCover
 
