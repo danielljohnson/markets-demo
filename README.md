@@ -9,9 +9,12 @@ Create a mysql database using schema.sql in markets-api
 Install node modules
 
     npm install
-    npm install -g http-server
     
-Start the server at localhost:3000
+Run tests
+
+    mocha --reporter spec
+
+Start server at localhost:3000
 
     node src/app.js
 
@@ -26,8 +29,9 @@ Install bower components
 Install node modules
 
     npm install
+    npm install -g http-server
 
-Start the server at localhost:8080
+Start server at localhost:8080
 
     http-server ./src
 
@@ -43,31 +47,21 @@ Intall node modules
     npm install -g mocha-phantomjs
     npm install -g karma-cli
 
-Install selenium server and chrome driver (see selenium website for details), add to system path
+Install the selenium server and chrome driver (see selenium website for details), add their directory to system path
 
-run api tests in markets-api
-
-    mocha --reporter spec
-
-run webdriverjs tests
+Run webdriverjs tests
 
     grunt webdriverjs --browser=chrome
     grunt webdriverjs --browser=phantomjs
     
-run casperjs tests
+Run casperjs tests
 
     grunt casper:all
     
-run cucumber tests
+Run cucumber tests
 
     grunt cucumber
     
-run mocha unit tests using karma and generate code coverage reports with istanbul
+Run unit tests using karma and generate code coverage reports with istanbul
 
     grunt unit
-    
-JSCover (assumes you've downloaded the JSCover-1.0.7 directory in the root of the project)
-
-    java -jar JSCover-1.0.7/target/dist/JSCover-all.jar -ws --document-root=markets-ui --report-dir=markets-ui/test/target --no-instrument=/src/js/keel/ --no-instrument=/bower_components/ --no-instrument=/node_modules/ --no-instrument=/test/
-    
-then browse to http://localhost:8080/jscoverage.html?test/unit/specRunner.html

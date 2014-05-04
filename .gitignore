@@ -1,6 +1,4 @@
+.DS_Store
 node_modules
 bower_components
-.DS_Store
-JSCover-1.0.7
-target
 coverage
