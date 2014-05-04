@@ -2,8 +2,6 @@ var assert = require('assert');
 
 describe('Markets', function() {
     'use strict';
-  
-    var baseUrl = 'http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/';
     
     before(function() {
         browser.windowHandleSize({width: 1024, height: 768});
@@ -16,7 +14,7 @@ describe('Markets', function() {
     describe('Create Market', function() {
         it('go to markets page', function(done) {
             browser
-                .url(baseUrl + '#markets')
+                .url('http://localhost:8080/#markets')
                 .getTitle(function(err, title) {
                     assert(err === null);
                     assert(title === 'Markets');
@@ -68,7 +66,7 @@ describe('Markets', function() {
     describe('Edit Market', function() {
         it('go to markets page', function(done) {
             browser
-                .url(baseUrl + '#markets')
+                .url('http://localhost:8080/#markets')
                 .getTitle(function(err, title) {
                     assert(err === null);
                     assert(title === 'Markets');
@@ -114,7 +112,7 @@ describe('Markets', function() {
     describe('Delete Market', function() {
         it('go to markets page', function(done) {
             browser
-                .url(baseUrl + '#markets')
+                .url('http://localhost:8080/#markets')
                 .getTitle(function(err, title) {
                     assert(err === null);
                     assert(title === 'Markets');

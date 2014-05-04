@@ -1,7 +1,5 @@
-var baseUrl = 'http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/';
-
 casper.test.begin('Add Market', 6, function suite(test) {
-    casper.start(baseUrl + '#markets', function() {
+    casper.start('http://localhost:8080/#markets', function() {
         this.viewport(1024, 768);
         test.assertTitle('Markets');
     });
@@ -41,7 +39,7 @@ casper.test.begin('Add Market', 6, function suite(test) {
 });
 
 casper.test.begin('Edit Market', 6, function suite(test) {    
-    casper.start(baseUrl + '#markets', function() {
+    casper.start('http://localhost:8080/#markets', function() {
         this.viewport(1024, 768);
         test.assertTitle('Markets');
     });
@@ -79,7 +77,7 @@ casper.test.begin('Edit Market', 6, function suite(test) {
 });
 
 casper.test.begin('Delete Market', 3, function suite(test) {
-    casper.start(baseUrl + '#markets', function() {
+    casper.start('http://localhost:8080/#markets', function() {
         this.viewport(1024, 768);
         test.assertTitle('Markets');
     });

@@ -1,31 +1,49 @@
-markets-demo
+Markets Demo
 ============
 
-create a mysql database using schema.sql in markets-api
+Steps to run the API
+--------------------
 
-install the node modules in both markets-api and markets-ui directories 
+Create a mysql database using schema.sql in markets-api
+
+Install node modules
+
+    npm install
+    npm install -g http-server
+    
+Start the server at localhost:3000
+
+    node src/app.js
+
+
+Steps to run the UI
+-------------------
+
+Install bower components
+
+    bower install
+
+Install node modules
 
     npm install
 
-install the following node modules globally
+Start the server at localhost:8080
+
+    http-server ./src
+
+  
+Steps to run the UI tests
+-------------------------
+
+Intall node modules
 
     npm install -g cucumber
-    npm install -g mocha-phantomjs phantomjs
+    npm install -g casperjs
+    npm install -g phantomjs
+    npm install -g mocha-phantomjs
     npm install -g karma-cli
 
-install selenium and chrome driver (see selenium website for details), add to system path
-
-install markets-ui vendor files using bower
-
-	bower install
-
-set baseUrl in markets-ui/test/webdriverjs/test.js and markets-ui/test/casperjs/test.js
-
-set appRoot in markets-ui/src/js/app/framework/AppConfig.js
-
-start api server at localhost:3000 by running the following in markets-api
-
-    node src/app.js
+Install selenium server and chrome driver (see selenium website for details), add to system path
 
 run api tests in markets-api
 

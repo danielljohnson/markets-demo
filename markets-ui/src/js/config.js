@@ -6,28 +6,28 @@ var require = {
 
     paths: {
         // jQuery
-        jquery:                      '../../bower_components/jquery/dist/jquery',
+        jquery:                      '../bower_components/jquery/dist/jquery',
 
         // Underscore
-        underscore:                  '../../bower_components/underscore/underscore',
+        underscore:                  '../bower_components/underscore/underscore',
 
         // Backbone
-        backbone:                    '../../bower_components/backbone/backbone',
+        backbone:                    '../bower_components/backbone/backbone',
         
         // Backbone Stickit
-        'backbone.stickit':          '../../bower_components/backbone.stickit/backbone.stickit',
+        'backbone.stickit':          '../bower_components/backbone.stickit/backbone.stickit',
         
         // Backbone Validation
-        'backbone.validation':       '../../bower_components/backbone-validation/dist/backbone-validation',
+        'backbone.validation':       '../bower_components/backbone-validation/dist/backbone-validation',
 
         // Templating
-        handlebars:                  '../../bower_components/handlebars/handlebars',
+        handlebars:                  '../bower_components/handlebars/handlebars',
 
         // Bootstrap
-        bootstrap:                   '../../bower_components/bootstrap/dist/js/bootstrap',
+        bootstrap:                   '../bower_components/bootstrap/dist/js/bootstrap',
         
         // requirejs-text
-        text:                        '../../bower_components/requirejs-text/text'
+        text:                        '../bower_components/requirejs-text/text'
     },
 
     shim: {

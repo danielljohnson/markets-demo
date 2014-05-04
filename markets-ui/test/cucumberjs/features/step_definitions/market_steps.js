@@ -9,7 +9,7 @@ function Market() {
   
   this.Given(/^that I am on the markets page$/, function (callback) {
     this.client
-      .url('http://127.0.0.1/~djohn3/markets-demo/markets-ui/src/#markets')
+      .url('http://localhost:8080/#markets')
       .call(callback);
   });
 

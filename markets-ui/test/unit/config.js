@@ -7,34 +7,34 @@ require.config({
       if (window.__karma__) {
         return '/base';
       } else {
-        return '../../';
+        return '../';
       }
     })(),
   
     paths: {
         // jQuery
-        jquery:                      'bower_components/jquery/dist/jquery',
+        jquery:                      'src/bower_components/jquery/dist/jquery',
 
         // Underscore
-        underscore:                  'bower_components/underscore/underscore',
+        underscore:                  'src/bower_components/underscore/underscore',
 
         // Backbone
-        backbone:                    'bower_components/backbone/backbone',
+        backbone:                    'src/bower_components/backbone/backbone',
         
         // Backbone Stickit
-        'backbone.stickit':          'bower_components/backbone.stickit/backbone.stickit',
+        'backbone.stickit':          'src/bower_components/backbone.stickit/backbone.stickit',
         
         // Backbone Validation
-        'backbone.validation':       'bower_components/backbone-validation/dist/backbone-validation',
+        'backbone.validation':       'src/bower_components/backbone-validation/dist/backbone-validation',
 
         // Templating
-        handlebars:                  'bower_components/handlebars/handlebars',
+        handlebars:                  'src/bower_components/handlebars/handlebars',
 
         // Bootstrap
-        bootstrap:                   'bower_components/bootstrap/dist/js/bootstrap',
+        bootstrap:                   'src/bower_components/bootstrap/dist/js/bootstrap',
         
         // requirejs-text
-        text:                        'bower_components/requirejs-text/text',
+        text:                        'src/bower_components/requirejs-text/text',
         
         // chai
         chai:                        'node_modules/chai/chai',
