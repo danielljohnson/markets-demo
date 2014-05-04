@@ -47,8 +47,6 @@ Intall node modules
     npm install -g mocha-phantomjs
     npm install -g karma-cli
 
-Install the selenium server and chrome driver (see selenium website for details), add their directory to system path
-
 Run webdriverjs tests
 
     grunt webdriverjs --browser=chrome
@@ -59,6 +57,10 @@ Run casperjs tests
     grunt casper:all
     
 Run cucumber tests
+
+Install the selenium server and chrome driver (see selenium website for details), add their directory to system path. If you are on windows, change cucumber.js to cucumber-js on line 73 in Gruntfile.js.
+
+Start selenium server using java -jar /your/path/to/selenium-server-standalone-x.xx.x.jar 
 
     grunt cucumber
     
