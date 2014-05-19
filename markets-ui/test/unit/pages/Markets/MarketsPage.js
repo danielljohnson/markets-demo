@@ -1,8 +1,9 @@
 define([
   'chai',
+  'sinon',
   'app/framework/HandlebarsUtil',
   'app/pages/Markets/MarketsPage'
-], function(chai, HandlebarsUtil, MarketsPage) {
+], function(chai, sinon, HandlebarsUtil, MarketsPage) {
   var assert = chai.assert;
   
   before(function() {

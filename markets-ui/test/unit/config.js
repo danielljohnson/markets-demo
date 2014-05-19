@@ -39,6 +39,9 @@ require.config({
         // chai
         chai:                        'node_modules/chai/chai',
         
+        // sinon
+        sinon:                       'node_modules/sinon/pkg/sinon-1.9.1',
+        
         // app
         app:                         'src/js/app',
         
@@ -72,6 +75,10 @@ require.config({
         
         bootstrap: {
             deps: ['jquery']
+        },
+        
+        sinon: {
+             exports: 'sinon'
         }
     },
     
@@ -85,10 +92,10 @@ require.config({
         window.__karma__.start();
       }
       
-      if (window.mochaPhantomJS) { 
+      /*if (window.mochaPhantomJS) { 
         mochaPhantomJS.run();
       } else {
         mocha.run();
-      }
+      }*/
     }
 });

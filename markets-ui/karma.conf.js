@@ -15,6 +15,7 @@ module.exports = function(config) {
       {pattern: 'src/js/**/*.js', included: false},
       {pattern: 'src/js/**/*.html', included: false},
       {pattern: 'node_modules/chai/chai.js', included: false},
+      {pattern: 'node_modules/sinon/pkg/sinon-1.9.1.js', included: false},
       {pattern: 'src/bower_components/jquery/dist/jquery.js', included: false},
       {pattern: 'src/bower_components/underscore/underscore.js', included: false},
       {pattern: 'src/bower_components/backbone/backbone.js', included: false},
@@ -45,7 +46,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots', 'coverage'],
+    reporters: ['spec', 'coverage'],
 
 
     // web server port
@@ -67,7 +68,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS', 'Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
