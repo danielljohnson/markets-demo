@@ -36,7 +36,4 @@ INSERT INTO currency
 VALUES 
     ('USD', 'US Dollar'),
     ('JPY', 'Japanese Yen'),
-    ('INR', 'Indian Rupeer'),
-    ('USD', 'Pound Sterling'),
-    ('JPY', 'Japanese Yen'),
-    ('INR', 'Euro');
+    ('INR', 'Indian Rupeer');
