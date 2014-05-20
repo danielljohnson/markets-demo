@@ -1,35 +1,69 @@
-markets-demo
+Markets Demo
 ============
 
-create mysql database using schema.sql in markets-api
+Steps to run the API
+--------------------
 
-install node modules in both markets-api and markets-ui directories and then install cucumber using
+Create a mysql database using schema.sql in markets-api
 
-    npm install -g cucumber
+Install node modules
 
-install selenium and chrome driver (see selenium website for details), add to system path
+    npm install
+    
+Run tests
 
-set baseUrl in markets-ui/test/webdriverjs/test.js and markets-ui/test/casperjs/test.js
+    mocha --reporter spec
 
-set appRoot in markets-ui/src/js/app/framework/AppConfig.js
-
-start api server at localhost:3000 by running the following in markets-api
+Start server at localhost:3000
 
     node src/app.js
 
-run api tests in markets-api using
 
-    grunt test
+Steps to run the UI
+-------------------
 
-run webdriverjs tests using
+Install bower components
+
+    bower install
+
+Install node modules
+
+    npm install
+    npm install -g http-server
+
+Start server at localhost:8080
+
+    http-server ./src
+
+  
+Steps to run the UI tests
+-------------------------
+
+Intall node modules
+
+    npm install -g cucumber
+    npm install -g casperjs
+    npm install -g phantomjs
+    npm install -g mocha-phantomjs
+    npm install -g karma-cli
+
+Run webdriverjs tests
 
     grunt webdriverjs --browser=chrome
     grunt webdriverjs --browser=phantomjs
     
-run casperjs tests using
+Run casperjs tests
 
     grunt casper:all
     
-run cucumber tests using
+Run cucumber tests
+
+Install the selenium server and chrome driver (see selenium website for details), add their directory to system path. If you are on windows, change cucumber.js to cucumber-js on line 73 in Gruntfile.js.
+
+Start selenium server using java -jar /your/path/to/selenium-server-standalone-x.xx.x.jar 
 
     grunt cucumber
+    
+Run unit tests using karma and generate code coverage reports with istanbul
+
+    grunt unit

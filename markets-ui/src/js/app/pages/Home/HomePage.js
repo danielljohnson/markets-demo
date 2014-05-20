@@ -1,7 +1,7 @@
 define(
     [
         'keel/BaseView',
-        'app/widgets/navbar/NavBarWidget',
+        'app/widgets/navbar/NavbarWidget',
         'text!app/pages/home/HomePageTemplate.html'
     ],
     function(BaseView, NavBarWidget, HomePageTemplate) {

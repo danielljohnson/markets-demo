@@ -4,7 +4,7 @@ define(
         'app/domain/Market',
         'app/widgets/markets/MarketsRowWidget',
         'app/widgets/markets/MarketsModalWidget',
-        'text!app/widgets/markets/marketsTableTemplate.html',
+        'text!app/widgets/markets/MarketsTableTemplate.html',
         'bootstrap'
     ],
     function(BaseView, Market, MarketsRowWidget, MarketsModalWidget, MarketsTableTemplate) {
@@ -31,15 +31,17 @@ define(
             },
             
             postRender: function() {
+                var that = this;
+                
                 this.collection.each(function(market) {
-                    this.addChild({
+                    that.addChild({
                         viewClass: MarketsRowWidget,
-                        parentElement: this.$el.find('tbody'),
+                        parentElement: that.$el.find('tbody'),
                         options: {
                             model: market
                         }
                     });
-                }.bind(this));
+                });
                 
                 return this;
             },

@@ -33,6 +33,9 @@ module.exports = function(grunt) {
       
       jshint: {
         all: ['Gruntfile.js', 'src/js/app/**/*.js', 'test/**/*.js'],
+        options: {
+          ignores: ['src/js/app/**/*Template.html.js']
+        }
       },
         
       watch: {
@@ -72,8 +75,24 @@ module.exports = function(grunt) {
             stdout: true,
             stderr: true
           }
+        },
+        
+        'mocha-phantomjs': {
+          command: 'mocha-phantomjs --reporter spec  http://127.0.0.1/~djohn3/markets-demo/markets-ui/test/unit/specRunner.html',
+          options: {
+            stdout: true,
+            stderr: true
+          }
+        },
+         
+        'karma': {
+          command: 'karma start',
+          options: {
+            stdout: true,
+            stderr: true
+          }
         }
-      },
+      }
     });
     
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -84,10 +103,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-webdriver');
     grunt.loadNpmTasks('grunt-casper');
     
+    // default
     grunt.registerTask('default', ['jshint']);
     
+    // webdriver selenium
     grunt.registerTask('_webdriverjs', ['webdriver:all']);
     
+    // grunt webdriverjs --browser=chrome
     grunt.registerTask('webdriverjs', function() {
       var browser = grunt.option('browser') || 'phantomjs';
       
@@ -96,5 +118,9 @@ module.exports = function(grunt) {
       grunt.task.run('_webdriverjs');
     });
     
+    // cucumberjs
     grunt.registerTask('cucumber', ['shell:cucumberjs']);
+    
+    // run unit tests using mocha and phantom
+    grunt.registerTask('unit', ['shell:karma']);
 };

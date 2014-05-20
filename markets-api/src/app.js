@@ -69,8 +69,6 @@ app.put('/markets/:id', function(req, res) {
   var params = req.body;
   
   delete params.id;
-  delete params.currency_name;
-  delete params.location_name;
   
   connection.query('UPDATE market SET ? WHERE id = ?', [params, id], function(err, result) {
     if (err) {

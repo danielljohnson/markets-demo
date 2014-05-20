@@ -1,6 +1,6 @@
 define(
     [
-        'app/domain/repository',
+        'app/domain/Repository',
         'keel/BaseView',
         'text!app/widgets/markets/MarketsModalTemplate.html',
         'bootstrap'
