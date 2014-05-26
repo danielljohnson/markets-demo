@@ -40,7 +40,7 @@ require.config({
         chai:                        'node_modules/chai/chai',
         
         // sinon
-        sinon:                       'node_modules/sinon/pkg/sinon-1.9.1',
+        sinon:                       'node_modules/sinon/pkg/sinon-1.10.0',
         
         // app
         app:                         'src/js/app',
