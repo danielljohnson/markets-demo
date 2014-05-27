@@ -91,6 +91,14 @@ module.exports = function(grunt) {
             stdout: true,
             stderr: true
           }
+        },
+        
+        'plato': {
+            command: 'plato -r -d report -l .jshintrc src/js/app',
+            options: {
+              stdout: true,
+              stderr: true
+            }
         }
       }
     });
@@ -123,4 +131,7 @@ module.exports = function(grunt) {
     
     // run unit tests using mocha and phantom
     grunt.registerTask('unit', ['shell:karma']);
+    
+    // plato
+    grunt.registerTask('plato', ['shell:plato']);
 };
