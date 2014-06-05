@@ -3,7 +3,8 @@ define(
         'app/domain/Repository',
         'keel/BaseView',
         'text!app/widgets/markets/MarketsModalTemplate.html',
-        'bootstrap'
+        'bootstrap',
+        'backbone.stickit'
     ],
     function(Repository, BaseView, MarketsModalTemplate) {
         'use strict';
@@ -97,7 +98,7 @@ define(
                 }
             },
             
-            marketsFormClose: function(e) {
+            marketsFormClose: function() {
                 // revert to previous attributes
                 this.model.set(this.clonedAttributes);
                 

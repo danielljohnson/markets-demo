@@ -62,7 +62,7 @@ define(
                 $('body').append(marketsModalWidget.render().$el);
                 
                 // remove modal view when it's hidden
-                $('#marketsModal').on('hidden.bs.modal', function (e) {
+                $('#marketsModal').on('hidden.bs.modal', function() {
                     marketsModalWidget.remove();
                 });
                 

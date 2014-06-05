@@ -25,7 +25,7 @@ define(
             ],
             
             events: {
-                'click .js-addMarket': 'addMarket',
+                'click .js-addMarket': 'addMarket'
             },
             
             initialize: function() {
@@ -57,18 +57,18 @@ define(
                 e.preventDefault();
                 
                 // create model view
-                var marketsModalWidget = new MarketsModalWidget({
+                this.marketsModalWidget = new MarketsModalWidget({
                     collection: this.markets,
                     model: new Market(),
                     mode: 'create'
                 });
                 
-                $('body').append(marketsModalWidget.render().$el);
-                
+                $('body').append(this.marketsModalWidget.render().$el);
+
                 // remove modal view when it's hidden
-                $('#marketsModal').on('hidden.bs.modal', function (e) {
-                    marketsModalWidget.remove();
-                });
+                $('#marketsModal').on('hidden.bs.modal', $.proxy(function() {
+                    this.marketsModalWidget.remove();
+                }, this));
                 
                 // show modal
                 $('#marketsModal').modal('show');

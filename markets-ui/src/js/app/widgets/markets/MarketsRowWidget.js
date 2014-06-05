@@ -12,7 +12,7 @@ define(
             template: {
                 name: 'MarketsRowTemplate',
                 source: MarketsRowTemplate
-            },
+            }
         });
     }
 );

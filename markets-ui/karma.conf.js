@@ -15,7 +15,7 @@ module.exports = function(config) {
       {pattern: 'src/js/**/*.js', included: false},
       {pattern: 'src/js/**/*.html', included: false},
       {pattern: 'node_modules/chai/chai.js', included: false},
-      {pattern: 'node_modules/sinon/pkg/sinon-1.10.0.js', included: false},
+      {pattern: 'node_modules/sinon/pkg/sinon-1.10.1.js', included: false},
       {pattern: 'src/bower_components/jquery/dist/jquery.js', included: false},
       {pattern: 'src/bower_components/underscore/underscore.js', included: false},
       {pattern: 'src/bower_components/backbone/backbone.js', included: false},
