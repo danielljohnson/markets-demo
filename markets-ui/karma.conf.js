@@ -24,8 +24,18 @@ module.exports = function(config) {
       {pattern: 'src/bower_components/bootstrap/dist/js/bootstrap.js', included: false},
       {pattern: 'src/bower_components/requirejs-text/text.js', included: false},
       {pattern: 'src/bower_components/handlebars/handlebars.js', included: false},
+
+      // domain
       {pattern: 'test/unit/domain/Market.js', included: false},
+
+      // pages
+      {pattern: 'test/unit/pages/Home/HomePage.js', included: false},
       {pattern: 'test/unit/pages/Markets/MarketsPage.js', included: false},
+
+      // widgets
+      {pattern: 'test/unit/widgets/navbar/NavbarWidget.js', included: false},
+      {pattern: 'test/unit/widgets/markets/MarketsModalWidget.js', included: false},
+
       'test/unit/config.js'
     ],
 

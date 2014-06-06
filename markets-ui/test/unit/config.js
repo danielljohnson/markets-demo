@@ -83,8 +83,16 @@ require.config({
     },
     
     deps: [
+      // domain
       'test/unit/domain/Market',
-      'test/unit/pages/Markets/MarketsPage'
+
+      // pages
+      'test/unit/pages/Home/HomePage',
+      'test/unit/pages/Markets/MarketsPage',
+
+      // widgets
+      'test/unit/widgets/navbar/NavbarWidget',
+      'test/unit/widgets/markets/MarketsModalWidget'
     ],
     
     callback: function() {
