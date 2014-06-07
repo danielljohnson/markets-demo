@@ -44,7 +44,6 @@ Intall node modules
     npm install -g cucumber
     npm install -g casperjs
     npm install -g phantomjs
-    npm install -g mocha-phantomjs
     npm install -g karma-cli
 
 Run webdriverjs tests
