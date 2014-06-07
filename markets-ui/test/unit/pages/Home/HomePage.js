@@ -1,12 +1,15 @@
 define([
     'chai',
     'sinon',
+    'app/framework/HandlebarsUtil',
     'app/pages/Home/HomePage'
-], function(chai, sinon, HomePage) {
+], function(chai, sinon, HandlebarsUtil, HomePage) {
     var assert = chai.assert,
         homePageView;
 
     before(function() {
+        HandlebarsUtil.registerHelpers();
+        
         homePageView = new HomePage();
     });
 

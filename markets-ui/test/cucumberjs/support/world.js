@@ -1,20 +1,20 @@
 var webdriverjs = require('webdriverjs');
 
 var World = function World(callback) {
-  'use strict';
+    'use strict';
   
-  var client = webdriverjs.remote({
-    desiredCapabilities: {
-      browserName: 'phantomjs'
-    },
-    logLevel: 'silent'
-  });
+    var client = webdriverjs.remote({
+        desiredCapabilities: {
+          browserName: 'phantomjs'
+        },
+        logLevel: 'silent'
+    });
   
-  var world = {
-    client: client
-  };
+    var world = {
+        client: client
+    };
 
-  callback(world);
+    callback(world);
 };
 
 exports.World = World;

@@ -1,14 +1,17 @@
 define([
     'chai',
     'sinon',
+    'app/framework/HandlebarsUtil',
     'app/domain/Markets',
     'app/pages/Markets/MarketsPage',
     'app/widgets/markets/MarketsModalWidget'
-], function(chai, sinon, Markets, MarketsPage, MarketsModalWidget) {
+], function(chai, sinon, HandlebarsUtil, Markets, MarketsPage, MarketsModalWidget) {
     var assert = chai.assert,
         marketsPageView;
 
     before(function() {
+        HandlebarsUtil.registerHelpers();
+
         marketsPageView = new MarketsPage();
     });
 
