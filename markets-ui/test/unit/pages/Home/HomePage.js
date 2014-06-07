@@ -9,7 +9,7 @@ define([
 
     before(function() {
         HandlebarsUtil.registerHelpers();
-        
+
         homePageView = new HomePage();
     });
 
