@@ -4,11 +4,7 @@ require.config({
     //urlArgs: "v="+(new Date()).getTime(),
     
     baseUrl: (function() {
-      if (window.__karma__) {
-        return '/base';
-      } else {
-        return '../';
-      }
+      return '/base';
     })(),
   
     paths: {
@@ -95,18 +91,11 @@ require.config({
 
       // widgets
       'test/unit/widgets/navbar/NavbarWidget',
-      'test/unit/widgets/markets/MarketsModalWidget'
+      'test/unit/widgets/markets/MarketsModalWidget',
+      'test/unit/widgets/markets/MarketsTableWidget'
     ],
     
     callback: function() {
-      if (window.__karma__) {
-        window.__karma__.start();
-      }
-      
-      /*if (window.mochaPhantomJS) { 
-        mochaPhantomJS.run();
-      } else {
-        mocha.run();
-      }*/
+      window.__karma__.start();
     }
 });

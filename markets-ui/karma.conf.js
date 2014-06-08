@@ -38,6 +38,7 @@ module.exports = function(config) {
       // widgets
       {pattern: 'test/unit/widgets/navbar/NavbarWidget.js', included: false},
       {pattern: 'test/unit/widgets/markets/MarketsModalWidget.js', included: false},
+      {pattern: 'test/unit/widgets/markets/MarketsTableWidget.js', included: false},
 
       'test/unit/config.js'
     ],
@@ -90,7 +91,7 @@ module.exports = function(config) {
     
     
     coverageReporter: {
-      type : 'lcov'
+      type : 'html'
     }
   });
 };
