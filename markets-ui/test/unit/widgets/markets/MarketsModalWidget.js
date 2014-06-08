@@ -70,8 +70,6 @@ define([
         });
 
         it('marketsFormDone', function() {
-            var e = new $.Event('click');
-
             var addSpy = sinon.spy(marketsModalWidget.collection, 'add');
 
             marketsModalWidget.model.set('name', 'test');
@@ -85,6 +83,19 @@ define([
             sinon.assert.calledWith(addSpy, marketsModalWidget.model);
 
             marketsModalWidget.collection.add.restore();
+        });
+
+        it('marketsFormClose', function() {
+            var setSpy = sinon.spy(marketsModalWidget.model, 'set');
+            var modalSpy = sinon.spy($.prototype, 'modal');
+
+            marketsModalWidget.marketsFormClose();
+
+            sinon.assert.calledWith(setSpy, {});
+            sinon.assert.calledWith(modalSpy, 'hide');
+
+            marketsModalWidget.model.set.restore();
+            $.prototype.modal.restore();
         });
     });
 });
