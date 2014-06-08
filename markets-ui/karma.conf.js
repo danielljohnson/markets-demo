@@ -28,6 +28,9 @@ module.exports = function(config) {
       // domain
       {pattern: 'test/unit/domain/Market.js', included: false},
 
+      // domain
+      {pattern: 'test/unit/framework/HandlebarsUtil.js', included: false},
+
       // pages
       {pattern: 'test/unit/pages/Home/HomePage.js', included: false},
       {pattern: 'test/unit/pages/Markets/MarketsPage.js', included: false},

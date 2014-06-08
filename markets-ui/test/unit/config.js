@@ -86,6 +86,9 @@ require.config({
       // domain
       'test/unit/domain/Market',
 
+      // domain
+      'test/unit/framework/HandlebarsUtil',
+
       // pages
       'test/unit/pages/Home/HomePage',
       'test/unit/pages/Markets/MarketsPage',
