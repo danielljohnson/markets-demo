@@ -44,16 +44,16 @@ define([
                 "name": "test"
             };
 
-        server.respondWith(
-            'GET',
-            'http://localhost:3000/markets/1',
-            [
-                200,
-                {
-                    'Content-Type': 'application/json'
-                },
-                JSON.stringify(response)
-            ]
+            server.respondWith(
+                'GET',
+                'http://localhost:3000/markets/1',
+                [
+                    200,
+                    {
+                        'Content-Type': 'application/json'
+                    },
+                    JSON.stringify(response)
+                ]
             );
 
             market.fetch({
