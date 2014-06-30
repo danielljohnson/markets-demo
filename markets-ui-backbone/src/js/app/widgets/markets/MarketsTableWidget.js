@@ -24,8 +24,6 @@ define([
 
         initialize: function() {
             this.listenTo(this.collection, 'reset change add remove', this.render);
-
-            this.collection.fetch();
         },
 
         postRender: function() {

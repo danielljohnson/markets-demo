@@ -7,6 +7,10 @@ define([
     return Backbone.Collection.extend({
         url: 'http://localhost:3000/markets',
 
-        model: Market
+        model: Market,
+        
+        parse: function(response) {
+            return response.markets;
+        }
     });
 });

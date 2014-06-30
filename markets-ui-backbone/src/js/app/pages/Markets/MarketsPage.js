@@ -28,6 +28,7 @@ define([
 
         initialize: function() {
             this.markets = new Markets();
+            this.markets.fetch();
         },
 
         postRender: function() {

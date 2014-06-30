@@ -57,7 +57,7 @@ describe('GET /markets/:id', function() {
       .get('/markets/' + marketId)
       .set('Content-Type', 'application/json')
       .expect(function(res) {
-        if (res.body.name !== 'Test Market') throw new Error('Fail');
+        if (res.body.market.name !== 'Test Market') throw new Error('Fail');
       })
       .expect(200, done);
   });
@@ -81,7 +81,7 @@ describe('GET /markets/:id', function() {
       .get('/markets/' + marketId)
       .set('Content-Type', 'application/json')
       .expect(function(res) {
-        if (res.body.name !== 'Test Market 2') throw new Error('Fail');
+        if (res.body.market.name !== 'Test Market 2') throw new Error('Fail');
       })
       .expect(200, done);
   });

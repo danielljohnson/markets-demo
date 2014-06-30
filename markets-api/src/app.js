@@ -31,7 +31,9 @@ app.all('*', function(req, res, next) {
 // markets
 app.get('/markets', function(req, res) {
   connection.query('SELECT * FROM market', function(err, rows) {
-    res.json(200, rows);
+    res.json(200, {
+      markets: rows
+    });
   });
 });
 
@@ -42,7 +44,9 @@ app.get('/markets/:id', function(req, res) {
     if (rows.length === 0) {
       res.send(404);
     } else {
-      res.json(200, rows[0]);
+      res.json(200, {
+        market: rows[0]
+      });
     }
   });
 });
@@ -98,14 +102,18 @@ app.delete('/markets/:id', function(req, res) {
 // locations
 app.get('/locations', function(req, res) {
   connection.query('SELECT * FROM location', function(err, rows) {
-    res.json(200, rows);
+    res.json(200, {
+      locations: rows
+    });
   });
 });
 
 // currencies
 app.get('/currencies', function(req, res) {
   connection.query('SELECT * FROM currency', function(err, rows) {
-    res.json(200, rows);
+    res.json(200, {
+      currencies: rows
+    });
   });
 });
 
