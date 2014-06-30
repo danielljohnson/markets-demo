@@ -1,1 +1,30 @@
-<h2>This is Markets</h2>
+<div class="container js-markets">
+    <h1>Markets</h1>
+    
+    <p><a class="btn btn-xs btn-primary js-addMarket" href="#">Add Market</a></p>
+    
+    <table class="table js-marketsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Currency</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each market in controller}}
+              <tr>
+                  <td>{{ name }}</td>
+                  <td>{{ location_id }}</td>
+                  <td>{{ currency_id }}</td>
+                  <td>{{ start_date }}</td>
+                  <td>{{ end_date }}</td>
+                  <td><a class="js-edit btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+              </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
