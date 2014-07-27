@@ -20,8 +20,8 @@ CREATE TABLE market (
     location INT NULL,
     start_date TIMESTAMP NULL,
     end_date TIMESTAMP NULL,
-    FOREIGN KEY (currency_id) REFERENCES currency(id) ON DELETE CASCADE,
-    FOREIGN KEY (location_id) REFERENCES location(id) ON DELETE CASCADE
+    FOREIGN KEY (currency) REFERENCES currency(id) ON DELETE CASCADE,
+    FOREIGN KEY (location) REFERENCES location(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 INSERT INTO location 
