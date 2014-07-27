@@ -1,0 +1,24 @@
+<table class="table js-marketsTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Currency</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each market in controller}}
+          <tr>
+              <td>{{ market.name }}</td>
+              <td>{{ market.location.name }}</td>
+              <td>{{ market.currency.name }}</td>
+              <td>{{ market.start_date }}</td>
+              <td>{{ market.end_date }}</td>
+              <td><a class="js-edit btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+          </tr>
+        {{/each}}
+    </tbody>
+</table>
