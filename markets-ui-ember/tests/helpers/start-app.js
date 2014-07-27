@@ -2,6 +2,7 @@
 
 var Application = require('markets-ui-ember/app')['default'];
 var Router = require('markets-ui-ember/router')['default'];
+import Ember from 'ember';
 
 export default function startApp(attrs) {
   var App;
