@@ -31,8 +31,8 @@ define([
         bindings: {
             'input#name': 'name',
 
-            'select#currency_id': {
-                observe: 'currency_id',
+            'select#currency': {
+                observe: 'currency',
                 selectOptions: {
                     collection: Repository.getCurrencies(),
                     labelPath: 'description',
@@ -41,8 +41,8 @@ define([
                 }
             },
 
-            'select#location_id': {
-                observe: 'location_id',
+            'select#location': {
+                observe: 'location',
                 selectOptions: {
                     collection: Repository.getLocations(),
                     labelPath: 'name',

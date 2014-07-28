@@ -108,12 +108,40 @@ app.get('/locations', function(req, res) {
   });
 });
 
+app.get('/locations/:id', function(req, res) {
+  var id = req.params.id;
+  
+  connection.query('SELECT * FROM location WHERE id = ?', [id], function(err, rows) {
+    if (rows.length === 0) {
+      res.send(404);
+    } else {
+      res.json(200, {
+        location: rows[0]
+      });
+    }
+  });
+});
+
 // currencies
 app.get('/currencies', function(req, res) {
   connection.query('SELECT * FROM currency', function(err, rows) {
     res.json(200, {
       currencies: rows
     });
+  });
+});
+
+app.get('/currencies/:id', function(req, res) {
+  var id = req.params.id;
+  
+  connection.query('SELECT * FROM currency WHERE id = ?', [id], function(err, rows) {
+    if (rows.length === 0) {
+      res.send(404);
+    } else {
+      res.json(200, {
+        currency: rows[0]
+      });
+    }
   });
 });
 

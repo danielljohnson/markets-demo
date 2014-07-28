@@ -16,12 +16,12 @@ CREATE TABLE currency (
 CREATE TABLE market (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    currency_id INT NULL,
-    location_id INT NULL,
+    currency INT NULL,
+    location INT NULL,
     start_date TIMESTAMP NULL,
     end_date TIMESTAMP NULL,
-    FOREIGN KEY (currency_id) REFERENCES currency(id) ON DELETE CASCADE,
-    FOREIGN KEY (location_id) REFERENCES location(id) ON DELETE CASCADE
+    FOREIGN KEY (currency) REFERENCES currency(id) ON DELETE CASCADE,
+    FOREIGN KEY (location) REFERENCES location(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 INSERT INTO location 

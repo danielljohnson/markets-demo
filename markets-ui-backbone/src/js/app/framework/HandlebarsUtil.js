@@ -14,12 +14,12 @@ define(
             return (typeof model_id === 'undefined') ? 'Create Market' : 'Edit ' + model_name;
         };
 
-        var getCurrencyDesc = function(currency_id) {
-            return Repository.getCurrencies().get(currency_id).get('description');
+        var getCurrencyDesc = function(currency) {
+            return Repository.getCurrencies().get(currency).get('description');
         };
 
-        var getLocationName = function(location_id) {
-            return Repository.getLocations().get(location_id).get('name');
+        var getLocationName = function(location) {
+            return Repository.getLocations().get(location).get('name');
         };
 
         return {
