@@ -1,10 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  model: function(params) {
-    return this.store.find('market', params.market_id);
-  },
-  
+export default Ember.ObjectController.extend({
   actions: {
     removeMarket: function() {
       var market = this.get('model');

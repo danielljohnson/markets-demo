@@ -10,15 +10,17 @@
         </tr>
     </thead>
     <tbody>
-        {{#each market in controller}}
+        {{#each itemController="market"}}
           <tr>
-              <td>{{ market.name }}</td>
-              <td>{{ market.location.name }}</td>
-              <td>{{ market.currency.name }}</td>
-              <td>{{ market.start_date }}</td>
-              <td>{{ market.end_date }}</td>
-              <td><a class="js-edit btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+              <td>{{ name }}</td>
+              <td>{{ location.name }}</td>
+              <td>{{ currency.name }}</td>
+              <td>{{ start_date }}</td>
+              <td>{{ end_date }}</td>
+              <td><a class="js-edit btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ id }}" {{ action "removeMarket" }} href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
           </tr>
         {{/each}}
     </tbody>
 </table>
+
+{{ totalMarkets }}
