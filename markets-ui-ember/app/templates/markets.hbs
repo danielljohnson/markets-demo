@@ -1,7 +1,27 @@
 <div class="container js-markets">
     <h1>Markets</h1>
     
-    <p><a class="btn btn-xs btn-primary js-addMarket" {{ action "addMarket" }} href="#">Add Market</a></p>
+    <p><a class="btn btn-xs btn-primary js-addMarket" {{ action "openModal" }} href="#">Add Market</a></p>
     
     {{ outlet }}
+    
+    <div class="modal fade" id="marketsModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close js-marketsFormClose" aria-hidden="true" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+                </div>
+        
+                <div class="modal-body">
+                    {{ partial 'markets/form' }}
+                </div>
+        
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default js-marketsFormClose" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary js-marketsFormSave" {{ action "createMarket" }}>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
