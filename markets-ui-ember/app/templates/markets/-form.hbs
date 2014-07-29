@@ -6,12 +6,12 @@
     
     <div class="form-group">
     <label for="location">Location</label>
-    <select class="form-control" name="location" id="location"></select>
+    {{ brm-select options=locations class="form-control" name="location" id="location" }}
     </div>
     
     <div class="form-group">
     <label for="currency">Currency</label>
-    <select class="form-control" name="currency" id="currency"></select>
+    {{ brm-select options=currencies class="form-control" name="currency" id="currency" }}
     </div>
     
     <div class="form-group">
