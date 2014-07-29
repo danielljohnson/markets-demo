@@ -1,12 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-  needs: 'locations',
-  
-  init: function() {
-    console.log('init')
-  },
-  
+export default Ember.ArrayController.extend({  
   actions: {
     openModal: function() {
       $('#marketsModal').modal('show');
