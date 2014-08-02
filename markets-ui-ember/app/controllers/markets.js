@@ -53,6 +53,8 @@ export default Ember.ArrayController.extend({
         controllerContext.set('end_date', '');
         
         market.save();
+        
+        $('#marketsModal').modal('hide');
       });
     }
   }
