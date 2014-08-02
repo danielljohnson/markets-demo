@@ -10,6 +10,10 @@ export default Ember.ArrayController.extend({
   }),
   
   actions: {
+    fancyBtnClick: function(num) {
+      console.log(num);
+    },
+    
     openModal: function() {
       $('#marketsModal').modal('show');
     },
