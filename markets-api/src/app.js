@@ -52,7 +52,7 @@ app.get('/markets/:id', function(req, res) {
 });
 
 app.post('/markets', function(req, res) {
-  var params = req.body;
+  var params = req.body.market;
   
   connection.query('INSERT INTO market SET ?', params, function(err, result) {
     if (err) {
@@ -60,9 +60,11 @@ app.post('/markets', function(req, res) {
         'error': err
       });
     } else {
+      params.id = result.insertId;
+      
       res.location('/markets/' + result.insertId);
       res.json(201, {
-        id: result.insertId
+        market: params
       });
     }
   });

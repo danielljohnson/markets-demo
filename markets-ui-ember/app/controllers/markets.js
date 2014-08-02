@@ -15,23 +15,41 @@ export default Ember.ArrayController.extend({
     },
     
     locationChange: function(value) {
-      console.log(value);
-      this.set('location', value);
+      Ember.set(this, 'location', parseInt(value));
+    },
+    
+    currencyChange: function(value) {
+      Ember.set(this, 'currency', parseInt(value));
     },
     
     createMarket: function() {
-      var name = this.get('name'),
-        location = this.get('location');
+      var controllerContext = this;
+      
+      var params = {
+        name: this.get('name'),
+        start_date: this.get('start_date'),
+        end_date: this.get('end_date')
+      };
 
-      var market = this.store.createRecord('market', {
-        name: name,
-        location: location
+      var market = this.store.createRecord('market', params);
+      
+      var relationships = {
+        location: this.store.find('location', this.get('location')),
+        currencie: this.store.find('currency', this.get('currency'))
+      }
+      
+      Ember.RSVP.hash(relationships).then(function(relationships) {
+        market.set('location', relationships.location);
+        market.set('currency', relationships.currencie);
+        
+        controllerContext.set('name', '');
+        controllerContext.set('location', '');
+        controllerContext.set('currency', '');
+        controllerContext.set('start_date', '');
+        controllerContext.set('end_date', '');
+        
+        market.save();
       });
-
-      this.set('market', '');
-      this.set('location', '');
-
-      market.save();
     }
   }
 });

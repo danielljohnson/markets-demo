@@ -1,4 +1,4 @@
-<form role="form" class="js-marketsForm">
+<form role="form" class="js-marketsForm" autocomplete="off">
     <div class="form-group">
     <label for="name">Name</label>
     {{ input value=name id="name" class="form-control" }}
@@ -6,12 +6,12 @@
     
     <div class="form-group">
     <label for="location">Location</label>
-    {{ brm-select options=locations class="form-control" name="location" id="location" }}
+    {{ brm-select options=locations class="form-control" name="location" id="location" action="locationChange" }}
     </div>
     
     <div class="form-group">
     <label for="currency">Currency</label>
-    {{ brm-select options=currencies class="form-control" name="currency" id="currency" }}
+    {{ brm-select options=currencies class="form-control" name="currency" id="currency" action="currencyChange" }}
     </div>
     
     <div class="form-group">
