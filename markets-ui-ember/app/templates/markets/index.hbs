@@ -17,7 +17,7 @@
               <td>{{ currency.name }}</td>
               <td>{{ start_date }}</td>
               <td>{{ end_date }}</td>
-              <td><a class="js-edit btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ id }}" {{ action "removeMarket" }} href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+              <td><a class="js-edit btn btn-default btn-xs" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" {{ action "removeMarket" }} href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
           </tr>
         {{/each}}
     </tbody>
