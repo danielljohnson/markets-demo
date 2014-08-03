@@ -55,8 +55,17 @@ app.get('/markets/:id', function(req, res) {
 app.post('/markets', function(req, res) {
   var params = req.body.market;
   
-  var start_date = moment(new Date(req.body.market.start_date)).format('YYYY-MM-DD HH:mm:ss');
-  var end_date = moment(new Date(req.body.market.end_date)).format('YYYY-MM-DD HH:mm:ss');
+  if (params.start_date) {
+    params.start_date = moment(new Date(params.start_date)).format('YYYY-MM-DD HH:mm:ss');
+  } else {
+    params.start_date = null;
+  }
+  
+  if (params.end_date) {
+    params.end_date = moment(new Date(params.end_date)).format('YYYY-MM-DD HH:mm:ss');
+  } else {
+    params.end_date = null;
+  }
   
   connection.query('INSERT INTO market SET ?', params, function(err, result) {
     if (err) {
