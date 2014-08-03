@@ -19,21 +19,22 @@ export default Ember.Controller.extend({
     currencyChange: function(value) {
       Ember.set(this, 'currency', parseInt(value));
     },
-  
+      
+    /* global moment */
     createMarket: function() {
       var controllerContext = this;
       
       var params = {
         name: this.get('name'),
-        start_date: (this.get('start_date')) ? this.moment(this.get('start_date')).toDate() : null,
-        end_date: (this.get('end_date')) ? this.moment(this.get('end_date')).toDate() : null,
+        start_date: (this.get('start_date')) ? moment(this.get('start_date')).toDate() : null,
+        end_date: (this.get('end_date')) ? moment(this.get('end_date')).toDate() : null,
       };
 
       var market = this.store.createRecord('market', params);
     
       var relationships = {
         location: this.store.find('location', this.get('location')),
-        currencie: this.store.find('currency', this.get('currency'))
+        currency: this.store.find('currency', this.get('currency'))
       };
     
       Ember.RSVP.hash(relationships).then(function(relationships) {
@@ -47,8 +48,9 @@ export default Ember.Controller.extend({
         controllerContext.set('end_date', '');
       
         market.save();
-      
-        this.$('#marketsModal').modal('hide');
+        
+        // this needs to change so $ isn't used in controller
+        $('#marketsModal').modal('hide');
       });
     }
   }
