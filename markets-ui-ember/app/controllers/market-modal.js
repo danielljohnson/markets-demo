@@ -25,8 +25,8 @@ export default Ember.Controller.extend({
       
       var params = {
         name: this.get('name'),
-        start_date: (this.get('start_date')) ? moment(this.get('start_date')).toDate() : null,
-        end_date: (this.get('end_date')) ? moment(this.get('end_date')).toDate() : null,
+        start_date: (this.get('start_date')) ? this.moment(this.get('start_date')).toDate() : null,
+        end_date: (this.get('end_date')) ? this.moment(this.get('end_date')).toDate() : null,
       };
 
       var market = this.store.createRecord('market', params);
@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
       var relationships = {
         location: this.store.find('location', this.get('location')),
         currencie: this.store.find('currency', this.get('currency'))
-      }
+      };
     
       Ember.RSVP.hash(relationships).then(function(relationships) {
         market.set('location', relationships.location);
@@ -48,7 +48,7 @@ export default Ember.Controller.extend({
       
         market.save();
       
-        $('#marketsModal').modal('hide');
+        this.$('#marketsModal').modal('hide');
       });
     }
   }

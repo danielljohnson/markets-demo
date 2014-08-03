@@ -6,7 +6,7 @@ export default Ember.View.extend({
     
     this.$('.modal').modal('show');
     
-    this.$('.modal').on('hidden.bs.modal', function(e) {
+    this.$('.modal').on('hidden.bs.modal', function() {
       viewContext.get('controller').send('closeModal');
     });
   }
