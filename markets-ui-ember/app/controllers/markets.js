@@ -14,10 +14,6 @@ export default Ember.ArrayController.extend({
       console.log(num);
     },
     
-    openModal: function() {
-      $('#marketsModal').modal('show');
-    },
-    
     locationChange: function(value) {
       Ember.set(this, 'location', parseInt(value));
     },
