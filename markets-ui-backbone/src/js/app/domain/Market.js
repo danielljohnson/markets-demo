@@ -18,6 +18,13 @@ define([
             location: {
                 required: true
             }
+        },
+        
+        // pad JSON (Ember needs it this way)
+        toJSON: function() {
+            return {
+                market: _.clone(this.attributes)
+            }
         }
     });
 });

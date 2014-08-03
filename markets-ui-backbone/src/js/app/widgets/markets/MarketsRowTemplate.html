@@ -1,6 +1,6 @@
-<td>{{ name }}</td>
-<td>{{{ getLocationName location }}}</td>
-<td>{{{ getCurrencyDesc currency }}}</td>
-<td>{{ start_date }}</td>
-<td>{{ end_date }}</td>
-<td><a class="js-edit btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ id }}" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+<td>{{ market.name }}</td>
+<td>{{{ getLocationName market.location }}}</td>
+<td>{{{ getCurrencyDesc market.currency }}}</td>
+<td>{{ market.start_date }}</td>
+<td>{{ market.end_date }}</td>
+<td><a class="js-edit btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-edit"></span></a> <a class="js-delete btn btn-default btn-xs" data-id="{{ market.id }}" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>

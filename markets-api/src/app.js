@@ -85,7 +85,19 @@ app.post('/markets', function(req, res) {
 
 app.put('/markets/:id', function(req, res) {
   var id = req.params.id;
-  var params = req.body;
+  var params = req.body.market;
+  
+  if (params.start_date) {
+    params.start_date = moment(new Date(params.start_date)).format('YYYY-MM-DD HH:mm:ss');
+  } else {
+    params.start_date = null;
+  }
+  
+  if (params.end_date) {
+    params.end_date = moment(new Date(params.end_date)).format('YYYY-MM-DD HH:mm:ss');
+  } else {
+    params.end_date = null;
+  }
   
   delete params.id;
   

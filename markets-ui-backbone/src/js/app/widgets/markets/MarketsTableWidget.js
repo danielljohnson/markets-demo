@@ -28,7 +28,7 @@ define([
 
         postRender: function() {
             var that = this;
-
+            
             this.collection.each(function(market) {
                 that.addChild({
                     viewClass: MarketsRowWidget,
