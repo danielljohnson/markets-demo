@@ -20,6 +20,8 @@ var app = new EmberApp();
 app.import('vendor/bootstrap/dist/js/bootstrap.js');
 app.import('vendor/bootstrap/dist/css/bootstrap.css');
 
+app.import('vendor/moment/moment.js');
+
 var mergeTrees = require('broccoli-merge-trees');
 var pickFiles = require('broccoli-static-compiler');
 var extraAssets = pickFiles('vendor/bootstrap/dist/fonts', {

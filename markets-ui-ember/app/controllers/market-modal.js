@@ -22,11 +22,11 @@ export default Ember.Controller.extend({
   
     createMarket: function() {
       var controllerContext = this;
-    
+      
       var params = {
         name: this.get('name'),
-        start_date: this.get('start_date'),
-        end_date: this.get('end_date')
+        start_date: moment(this.get('start_date')).toDate(),
+        end_date: moment(this.get('end_date')).toDate()
       };
 
       var market = this.store.createRecord('market', params);

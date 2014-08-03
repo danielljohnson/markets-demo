@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var moment = require('moment');
 
 // database
 var connection = mysql.createConnection({
@@ -53,6 +54,9 @@ app.get('/markets/:id', function(req, res) {
 
 app.post('/markets', function(req, res) {
   var params = req.body.market;
+  
+  var start_date = moment(new Date(req.body.market.start_date)).format('YYYY-MM-DD HH:mm:ss');
+  var end_date = moment(new Date(req.body.market.end_date)).format('YYYY-MM-DD HH:mm:ss');
   
   connection.query('INSERT INTO market SET ?', params, function(err, result) {
     if (err) {
