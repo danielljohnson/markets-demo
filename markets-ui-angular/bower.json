@@ -1,0 +1,20 @@
+{
+  "name": "markets-ui-angular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/szendeh/markets-demo",
+  "authors": [
+    "solh <szendeh@sapient.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "https://github.com/angular/bower-angular.git#~1.2.21"
+  }
+}

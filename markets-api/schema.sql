@@ -37,3 +37,10 @@ VALUES
     ('USD', 'US Dollar'),
     ('JPY', 'Japanese Yen'),
     ('INR', 'Indian Rupeer');
+
+INSERT INTO market
+    (id, name, currency, location, start_date, end_date)
+VALUES
+    (NULL, 'name1', 1, 3, '2014-08-04', '2014-08-05'),
+    (NULL, 'name2', 2, 2, '2014-08-02', '2014-08-08'),
+    (NULL, 'name3', 3, 1, '2014-08-01', '2014-08-05');

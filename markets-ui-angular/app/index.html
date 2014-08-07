@@ -1,0 +1,51 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Markets Demo Angular</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body ng-app="markets-demo-angular">
+
+    <div class="container clearfix" id="container" ng-view></div>
+
+    <footer></footer>
+<!-- VENDOR -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+<!-- APP -->
+    <script src="scripts/app.js"></script>
+
+<!-- CONTROLLERS -->
+    <script src="scripts/controllers/HomeCtrl.js"></script>
+    <script src="scripts/controllers/MarketsCtrl.js"></script>
+    <script src="scripts/controllers/MarketTableCtrl.js"></script>
+    <script src="scripts/controllers/ModalInstanceCtrl.js"></script>
+    <script src="scripts/controllers/NavbarCtrl.js"></script>
+
+<!-- DIRECTIVES -->
+    <script src="scripts/directives/MarketTableDir.js"></script>
+    <script src="scripts/directives/NavbarDir.js"></script>
+
+<!-- SERVICES -->
+    <script src="scripts/services/CurrenciesSvc.js"></script>
+    <script src="scripts/services/LocationsSvc.js"></script>
+    <script src="scripts/services/MarketsSvc.js"></script>
+
+</body>
+</html>

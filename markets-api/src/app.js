@@ -1,3 +1,4 @@
+var fs = require('fs')
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
@@ -7,10 +8,17 @@ var connection = mysql.createConnection({
   host     : '127.0.0.1',
   user     : 'root',
   password : '',
-  database : 'markets'
+  multipleStatements: true
 });
 
 connection.connect();
+
+connection.query('drop database if exists markets');
+
+fs.readFile('schema.sql', 'utf8', function(err, data) {
+  console.log('running sql: '+ data);
+  connection.query(data);
+});
 
 // app
 var app = express();
@@ -29,7 +37,7 @@ app.all('*', function(req, res, next) {
 });
 
 // markets
-app.get('/markets', function(req, res) {
+app.get('/rest/markets', function(req, res) {
   connection.query('SELECT * FROM market', function(err, rows) {
     res.json(200, {
       markets: rows
@@ -37,7 +45,7 @@ app.get('/markets', function(req, res) {
   });
 });
 
-app.get('/markets/:id', function(req, res) {
+app.get('/rest/markets/:id', function(req, res) {
   var id = req.params.id;
   
   connection.query('SELECT * FROM market WHERE id = ?', [id], function(err, rows) {
@@ -51,7 +59,7 @@ app.get('/markets/:id', function(req, res) {
   });
 });
 
-app.post('/markets', function(req, res) {
+app.post('/rest/markets', function(req, res) {
   var params = req.body;
   
   connection.query('INSERT INTO market SET ?', params, function(err, result) {
@@ -68,7 +76,7 @@ app.post('/markets', function(req, res) {
   });
 });
 
-app.put('/markets/:id', function(req, res) {
+app.put('/rest/markets/:id', function(req, res) {
   var id = req.params.id;
   var params = req.body;
   
@@ -85,7 +93,7 @@ app.put('/markets/:id', function(req, res) {
   });
 });
 
-app.delete('/markets/:id', function(req, res) {
+app.delete('/rest/markets/:id', function(req, res) {
   var id = req.params.id;
   
   connection.query('DELETE FROM market WHERE id = ?', id, function(err, result) {
@@ -100,7 +108,7 @@ app.delete('/markets/:id', function(req, res) {
 });
 
 // locations
-app.get('/locations', function(req, res) {
+app.get('/rest/locations', function(req, res) {
   connection.query('SELECT * FROM location', function(err, rows) {
     res.json(200, {
       locations: rows
@@ -108,7 +116,7 @@ app.get('/locations', function(req, res) {
   });
 });
 
-app.get('/locations/:id', function(req, res) {
+app.get('/rest/locations/:id', function(req, res) {
   var id = req.params.id;
   
   connection.query('SELECT * FROM location WHERE id = ?', [id], function(err, rows) {
@@ -123,7 +131,7 @@ app.get('/locations/:id', function(req, res) {
 });
 
 // currencies
-app.get('/currencies', function(req, res) {
+app.get('/rest/currencies', function(req, res) {
   connection.query('SELECT * FROM currency', function(err, rows) {
     res.json(200, {
       currencies: rows
@@ -131,7 +139,7 @@ app.get('/currencies', function(req, res) {
   });
 });
 
-app.get('/currencies/:id', function(req, res) {
+app.get('/rest/currencies/:id', function(req, res) {
   var id = req.params.id;
   
   connection.query('SELECT * FROM currency WHERE id = ?', [id], function(err, rows) {
@@ -144,6 +152,8 @@ app.get('/currencies/:id', function(req, res) {
     }
   });
 });
+
+app.use(express.static('../markets-ui-angular/app'));
 
 var server = app.listen(3000, function() {
   console.log('Listening on port %d', server.address().port);
