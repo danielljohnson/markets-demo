@@ -3,8 +3,9 @@ angular
     .controller('MarketsModalCtrl', function ($scope, $modalInstance, options) {
       $scope.options = options;
 
-      $scope.save = function () {
+      $scope.save = function () {console.log(arguments, $scope.marketForm, $scope);
         $scope.options.save(
+            $scope.marketForm,
             function() {
                 $modalInstance.close('saved');
             },

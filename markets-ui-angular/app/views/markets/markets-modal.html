@@ -1,41 +1,40 @@
-<div class="modal-header">
-    <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
-    <h4 class="modal-title" id="myModalLabel">{{ options.title }}</h4>
-</div>
-<div class="modal-body">
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="close()">&times;</button>
-        <div class="errors">test</div>
-    </div>
-    
-    <form role="form" class="js-marketsForm">
-        <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" id="name">
-        </div>
-        
-        <div class="form-group">
-        <label for="location">Location</label>
-        <select class="form-control" name="location" id="location"></select>
-        </div>
-        
-        <div class="form-group">
-        <label for="currency">Currency</label>
-        <select class="form-control" name="currency" id="currency"></select>
-        </div>
-        
-        <div class="form-group">
-        <label for="start_date">Start Date</label>
-        <input type="date" class="form-control" name="start_date" id="start_date">
-        </div>
-        
-        <div class="form-group">
-        <label for="end_date">End Date</label>
-        <input type="date" class="form-control" name="end_date" id="end_date">
-        </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" ng-click="close()">Close</button>
-    <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
-</div>
+<form role="form" name="marketForm" novalidate ng-submit="marketForm.$valid && save()">
+	<div class="modal-header">
+	    <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+	    <h4 class="modal-title" id="myModalLabel">{{ options.title }}</h4>
+	</div>
+	<div class="modal-body">
+	    <div class="alert alert-danger">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="close()">&times;</button>
+	        <div class="errors">test</div>
+	    </div>
+	        <div class="form-group">
+	        <label for="name">Name</label>
+	        <input type="text" class="form-control" name="name" id="name" ng-model="market.name">
+	        </div>
+	        
+	        <div class="form-group">
+	        <label for="location">Location</label>
+	        <select class="form-control" name="location" id="location" ng-model="market.location"></select>
+	        </div>
+	        
+	        <div class="form-group">
+	        <label for="currency">Currency</label>
+	        <select class="form-control" name="currency" id="currency" ng-model="market.currency"></select>
+	        </div>
+	        
+	        <div class="form-group">
+	        <label for="start_date">Start Date</label>
+	        <input type="date" class="form-control" name="start_date" id="start_date" ng-model="market.start_date">
+	        </div>
+	        
+	        <div class="form-group">
+	        <label for="end_date">End Date</label>
+	        <input type="date" class="form-control" name="end_date" id="end_date" ng-model="market.end_date">
+	        </div>
+	</div>
+	<div class="modal-footer">
+	    <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+	    <input type="submit" class="btn btn-primary" value="Save">
+	</div>
+</form>

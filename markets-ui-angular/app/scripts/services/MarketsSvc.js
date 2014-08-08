@@ -4,6 +4,9 @@ angular
         'use strict';
 
         return $resource('/rest/markets/:id', {}, {
+            add: {
+                method: 'POST'
+            },
         	delete: {
         		method: 'DELETE'
         	},

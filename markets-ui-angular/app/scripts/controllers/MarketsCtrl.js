@@ -1,6 +1,6 @@
 angular
 	.module('markets-demo-angular')
-	.controller('MarketsCtrl', function($scope, $modal, $log) {
+	.controller('MarketsCtrl', function($scope, $modal, $log, MarketsSvc) {
       $scope.add = function (size) {
         var modalInstance = $modal.open({
 			templateUrl: 'views/markets/markets-modal.html',
@@ -13,8 +13,10 @@ angular
 						close: function() {
 							console.log('test close');
 						},
-						save: function(success, error) {
-							console.log('test save');
+						save: function(form, success, error) {
+							console.log(arguments);
+
+							// MarketsSvc.add()
 
 							if (true) {
 								success();
